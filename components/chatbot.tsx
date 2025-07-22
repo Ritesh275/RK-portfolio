@@ -1,14 +1,25 @@
 "use client"
 
+import type React from "react"
+
 import { useState } from "react"
 import { useChat } from "ai/react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { MessageCircle, X, Send, Bot, User } from "lucide-react"
+import { MessageCircle, X, Send, Bot, User, Loader2 } from "lucide-react"
 
 export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false)
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat()
+  const { messages, input, handleInputChange, handleSubmit, isLoading, error } = useChat({
+    api: "/api/chat",
+  })
+
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    if (input.trim()) {
+      handleSubmit(e)
+    }
+  }
 
   return (
     <>
@@ -60,6 +71,11 @@ export function Chatbot() {
                     <Bot className="h-8 w-8 mx-auto mb-2 text-indigo-600" />
                     <p>Hi! I'm Ritesh's AI assistant.</p>
                     <p>Ask me about his projects, skills, or experience!</p>
+                    <div className="mt-3 space-y-1 text-xs">
+                      <p className="text-slate-400">Try asking:</p>
+                      <p className="text-slate-400">"What projects has Ritesh worked on?"</p>
+                      <p className="text-slate-400">"Tell me about his AI experience"</p>
+                    </div>
                   </div>
                 )}
 
@@ -77,7 +93,7 @@ export function Chatbot() {
                           <Bot className="h-4 w-4 mt-0.5 text-indigo-600 flex-shrink-0" />
                         )}
                         {message.role === "user" && <User className="h-4 w-4 mt-0.5 text-white flex-shrink-0" />}
-                        <div className="flex-1">{message.content}</div>
+                        <div className="flex-1 whitespace-pre-wrap">{message.content}</div>
                       </div>
                     </div>
                   </div>
@@ -88,11 +104,19 @@ export function Chatbot() {
                     <div className="bg-slate-100 rounded-lg px-3 py-2 text-sm">
                       <div className="flex items-center space-x-2">
                         <Bot className="h-4 w-4 text-indigo-600" />
-                        <div className="flex space-x-1">
-                          <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce"></div>
-                          <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce animation-delay-200"></div>
-                          <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce animation-delay-400"></div>
-                        </div>
+                        <Loader2 className="h-4 w-4 animate-spin text-slate-400" />
+                        <span className="text-slate-500">Thinking...</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {error && (
+                  <div className="flex justify-start">
+                    <div className="bg-red-100 border border-red-200 rounded-lg px-3 py-2 text-sm">
+                      <div className="flex items-center space-x-2">
+                        <Bot className="h-4 w-4 text-red-600" />
+                        <span className="text-red-700">Sorry, I'm having trouble connecting. Please try again!</span>
                       </div>
                     </div>
                   </div>
@@ -101,7 +125,7 @@ export function Chatbot() {
 
               {/* Input */}
               <div className="border-t border-slate-200 p-4">
-                <form onSubmit={handleSubmit} className="flex space-x-2">
+                <form onSubmit={handleFormSubmit} className="flex space-x-2">
                   <input
                     value={input}
                     onChange={handleInputChange}
@@ -115,7 +139,7 @@ export function Chatbot() {
                     disabled={isLoading || !input.trim()}
                     className="bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700 text-white"
                   >
-                    <Send className="h-4 w-4" />
+                    {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
                   </Button>
                 </form>
               </div>

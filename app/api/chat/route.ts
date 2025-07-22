@@ -4,12 +4,13 @@ import { streamText } from "ai"
 export const maxDuration = 30
 
 export async function POST(req: Request) {
-  const { messages } = await req.json()
+  try {
+    const { messages } = await req.json()
 
-  const result = streamText({
-    model: openai("gpt-4-turbo"),
-    messages,
-    system: `You are Ritesh Kakade's AI assistant on his portfolio website. You are knowledgeable about:
+    const result = streamText({
+      model: openai("gpt-4o"),
+      messages,
+      system: `You are Ritesh Kakade's AI assistant on his portfolio website. You are knowledgeable about:
 
 - Ritesh's background: Computer Engineer from Savitribai Phule Pune University (2021-2024)
 - Current role: AI Coding Expert at Outlier AI (Aug 2024 - Present)
@@ -21,8 +22,14 @@ export async function POST(req: Request) {
 - LinkedIn: https://www.linkedin.com/in/ritesh-kakade-6b8514366
 - GitHub: https://github.com/ritesh275
 
-Be helpful, professional, and enthusiastic about Ritesh's work. Answer questions about his experience, projects, and skills. If asked about hiring or collaboration, encourage them to contact Ritesh directly.`,
-  })
+Be helpful, professional, and enthusiastic about Ritesh's work. Answer questions about his experience, projects, and skills. If asked about hiring or collaboration, encourage them to contact Ritesh directly.
 
-  return result.toDataStreamResponse()
+Keep responses concise and engaging. If you don't know something specific, be honest and direct them to contact Ritesh.`,
+    })
+
+    return result.toDataStreamResponse()
+  } catch (error) {
+    console.error("Chat API Error:", error)
+    return new Response("Error processing chat request", { status: 500 })
+  }
 }
