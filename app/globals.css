@@ -133,11 +133,5 @@
 }
 
 @layer utilities {
-  .card {
-    @apply bg-white/80 border-slate-200 backdrop-blur-lg shadow-lg;
-  }
-
-  .badge {
-    @apply bg-indigo-100 text-indigo-700 border-indigo-200;
-  }
+  /* Keep only basic utilities if needed */
 }

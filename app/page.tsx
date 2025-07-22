@@ -62,9 +62,9 @@ export default function RiteshPortfolio() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-emerald-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse animation-delay-2000"></div>
-        <div className="absolute top-40 left-40 w-80 h-80 bg-amber-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse animation-delay-4000"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-emerald-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"></div>
+        <div className="absolute top-40 left-40 w-80 h-80 bg-amber-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"></div>
       </div>
 
       {/* Navigation */}
@@ -101,18 +101,7 @@ export default function RiteshPortfolio() {
       {/* Hero Section */}
       <section id="hero" className="relative container px-4 py-20 md:py-28 overflow-hidden">
         {/* Enhanced Floating Particles with 3D effects */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(6)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-gradient-to-r from-indigo-400 to-emerald-400 rounded-full opacity-40"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-            />
-          ))}
-        </div>
+        <div className="absolute inset-0 overflow-hidden pointer-events-none"></div>
 
         <div
           className={`flex flex-col items-center text-center space-y-8 transition-all duration-1000 ${
@@ -121,7 +110,7 @@ export default function RiteshPortfolio() {
         >
           <div className="relative">
             <div className="w-24 h-24 rounded-full bg-gradient-to-r from-indigo-500 to-emerald-500 flex items-center justify-center">
-              <div className="w-[90px] h-[90px] rounded-full bg-white flex items-center justify-center hover-3d">
+              <div className="w-[90px] h-[90px] rounded-full bg-white flex items-center justify-center">
                 <User className="h-12 w-12 text-emerald-600" />
               </div>
             </div>
@@ -250,10 +239,10 @@ export default function RiteshPortfolio() {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3 group hover:scale-105 transition-all duration-300">
                     <div className="relative">
-                      <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full flex items-center justify-center animate-pulse">
+                      <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full flex items-center justify-center">
                         <Globe className="h-5 w-5 text-white" />
                       </div>
-                      <div className="absolute inset-0 bg-emerald-500 rounded-full animate-ping opacity-20"></div>
+                      <div className="absolute inset-0 bg-emerald-500 rounded-full opacity-20"></div>
                     </div>
                     <span className="text-emerald-700 font-medium group-hover:text-emerald-800 transition-colors">
                       Sign Language Interpreter (ASL)
@@ -261,10 +250,10 @@ export default function RiteshPortfolio() {
                   </div>
                   <div className="flex items-center space-x-3 group hover:scale-105 transition-all duration-300">
                     <div className="relative">
-                      <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center animate-pulse animation-delay-1000">
+                      <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center">
                         <Brain className="h-5 w-5 text-white" />
                       </div>
-                      <div className="absolute inset-0 bg-amber-500 rounded-full animate-ping opacity-20 animation-delay-1000"></div>
+                      <div className="absolute inset-0 bg-amber-500 rounded-full opacity-20"></div>
                     </div>
                     <span className="text-amber-700 font-medium group-hover:text-amber-800 transition-colors">
                       AI & Machine Learning Expert
@@ -272,10 +261,10 @@ export default function RiteshPortfolio() {
                   </div>
                   <div className="flex items-center space-x-3 group hover:scale-105 transition-all duration-300">
                     <div className="relative">
-                      <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center animate-pulse animation-delay-2000">
+                      <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center">
                         <Zap className="h-5 w-5 text-white" />
                       </div>
-                      <div className="absolute inset-0 bg-indigo-500 rounded-full animate-ping opacity-20 animation-delay-2000"></div>
+                      <div className="absolute inset-0 bg-indigo-500 rounded-full opacity-20"></div>
                     </div>
                     <span className="text-indigo-700 font-medium group-hover:text-indigo-800 transition-colors">
                       Full-Stack Web Developer
@@ -298,7 +287,7 @@ export default function RiteshPortfolio() {
                 <div className="flex justify-between items-start mb-3">
                   <div className="space-y-1">
                     <h3 className="text-lg font-semibold text-slate-900 flex items-center gap-2">
-                      <div className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></div>
+                      <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
                       AI Coding Expert
                     </h3>
                     <p className="text-emerald-700 font-medium">
@@ -326,7 +315,7 @@ export default function RiteshPortfolio() {
                 <div className="flex justify-between items-start mb-3">
                   <div className="space-y-1">
                     <h3 className="text-lg font-semibold text-slate-900 flex items-center gap-2">
-                      <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                      <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
                       Frontend Developer Intern
                     </h3>
                     <p className="text-emerald-700 font-medium">
@@ -439,10 +428,7 @@ export default function RiteshPortfolio() {
             ].map((project, index) => (
               <Card
                 key={index}
-                className="group bg-white/80 border-slate-200 backdrop-blur-lg hover:bg-white/90 transition-all duration-500 overflow-hidden hover:scale-105"
-                style={{
-                  animationDelay: `${index * 0.2}s`,
-                }}
+                className="group bg-white/80 border-slate-200 backdrop-blur-lg hover:bg-white/90 transition-all duration-500 overflow-hidden"
               >
                 <div className={`h-2 bg-gradient-to-r ${project.gradient}`}></div>
                 <div className="h-32 relative overflow-hidden">
@@ -456,7 +442,7 @@ export default function RiteshPortfolio() {
                   />
                   {/* Floating tech badges */}
                   <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-6 h-6 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full animate-bounce-3d"></div>
+                    <div className="w-6 h-6 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
                   </div>
                 </div>
                 <CardHeader className="bg-transparent pb-3">
@@ -470,7 +456,7 @@ export default function RiteshPortfolio() {
                     <div className="mb-3">
                       <ul className="text-xs text-slate-600 space-y-1">
                         {project.features.slice(0, 2).map((feature, idx) => (
-                          <li key={idx} className="flex items-start" style={{ animationDelay: `${idx * 0.1}s` }}>
+                          <li key={idx} className="flex items-start">
                             <span className="text-emerald-600 mr-1">•</span>
                             {feature}
                           </li>
@@ -484,7 +470,6 @@ export default function RiteshPortfolio() {
                         key={tech}
                         variant="outline"
                         className="border-slate-200 text-slate-600 bg-transparent text-xs px-2 py-0"
-                        style={{ animationDelay: `${techIdx * 0.2}s` }}
                       >
                         {tech}
                       </Badge>
