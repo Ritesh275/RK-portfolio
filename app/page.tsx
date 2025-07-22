@@ -6,7 +6,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import {
   Linkedin,
   Mail,
-  ExternalLink,
   Phone,
   Calendar,
   Award,
@@ -48,7 +47,7 @@ export default function RiteshPortfolio() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
@@ -327,7 +326,7 @@ export default function RiteshPortfolio() {
                   "Conversational AI chatbot with session-based memory and context chaining for personalized interactions",
                 tech: ["Python", "OpenAI GPT", "LangChain", "Flask", "JavaScript"],
                 gradient: "from-purple-500 to-pink-500",
-                image: "/images/ai-memory-chatbot.png",
+                image: "/placeholder.svg?height=200&width=400",
                 features: [
                   "Session-based memory and context chaining",
                   "OpenAI GPT integration for intelligent responses",
@@ -339,7 +338,7 @@ export default function RiteshPortfolio() {
                   "AI-powered tool that generates natural language explanations of code with visual flowcharts",
                 tech: ["Python", "OpenAI GPT", "Mermaid.js", "Flask", "JavaScript"],
                 gradient: "from-cyan-500 to-blue-500",
-                image: "/images/code-explainer-pro.png",
+                image: "/placeholder.svg?height=200&width=400",
                 features: ["Multi-language code analysis and interpretation", "Mermaid.js flowchart visualization"],
               },
               {
@@ -347,7 +346,7 @@ export default function RiteshPortfolio() {
                 description: "Comprehensive admin panel with data visualization and user management features",
                 tech: ["React", "JavaScript", "CSS"],
                 gradient: "from-indigo-500 to-blue-500",
-                image: "/images/admin-dashboard.png",
+                image: "/placeholder.svg?height=200&width=400",
                 features: ["Data visualization dashboards", "User management and authentication"],
               },
               {
@@ -355,7 +354,7 @@ export default function RiteshPortfolio() {
                 description: "Modern restaurant website with online ordering and reservation system",
                 tech: ["HTML", "CSS", "JavaScript"],
                 gradient: "from-emerald-500 to-teal-500",
-                image: "/images/restaurant-website.png",
+                image: "/placeholder.svg?height=200&width=400",
                 features: ["Online menu and ordering system", "Table reservation functionality"],
               },
               {
@@ -363,7 +362,7 @@ export default function RiteshPortfolio() {
                 description: "Full-featured e-commerce platform with payment integration",
                 tech: ["React", "Bootstrap", "REST APIs"],
                 gradient: "from-amber-500 to-orange-500",
-                image: "/images/ecommerce-app.png",
+                image: "/placeholder.svg?height=200&width=400",
                 features: ["Product catalog and shopping cart", "Secure payment gateway integration"],
               },
               {
@@ -371,13 +370,13 @@ export default function RiteshPortfolio() {
                 description: "Responsive portfolio website showcasing projects and skills",
                 tech: ["HTML", "CSS", "JavaScript"],
                 gradient: "from-blue-500 to-indigo-500",
-                image: "/images/portfolio-website.png",
+                image: "/placeholder.svg?height=200&width=400",
                 features: ["Project showcase with detailed descriptions", "Skills and experience highlights"],
               },
             ].map((project, index) => (
               <Card
                 key={index}
-                className="group bg-white/80 border-slate-200 backdrop-blur-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+                className="bg-white/80 border-slate-200 backdrop-blur-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
               >
                 <div className={`h-2 bg-gradient-to-r ${project.gradient}`}></div>
                 <div className="h-32 relative overflow-hidden">
@@ -385,14 +384,12 @@ export default function RiteshPortfolio() {
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
                     fill
-                    className="object-cover object-center group-hover:scale-110 transition-transform duration-300"
+                    className="object-cover object-center"
                     sizes="(max-width: 768px) 100vw, 400px"
                   />
                 </div>
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-slate-900 group-hover:text-emerald-700 transition-colors text-lg">
-                    {project.title}
-                  </CardTitle>
+                  <CardTitle className="text-slate-900 text-lg">{project.title}</CardTitle>
                   <CardDescription className="text-slate-600 text-sm">{project.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="pt-0">
@@ -462,7 +459,7 @@ export default function RiteshPortfolio() {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-2">
-                  {["OpenAI GPT", "LangChain", "Machine Learning", "Natural Language Processing"].map((skill) => (
+                  {["OpenAI GPT", "LangChain", "Machine Learning", "NLP"].map((skill) => (
                     <Badge
                       key={skill}
                       className="bg-emerald-100 text-emerald-700 border-emerald-200 hover:bg-emerald-200 transition-colors"
@@ -539,14 +536,24 @@ export default function RiteshPortfolio() {
             ].map((cert, index) => (
               <Card
                 key={index}
-                className="bg-white/80 border-slate-200 backdrop-blur-lg shadow-lg hover:shadow-xl transition-shadow group"
+                className="bg-white/80 border-slate-200 backdrop-blur-lg shadow-lg hover:shadow-xl transition-shadow"
               >
                 <CardHeader>
                   <div className="flex items-start justify-between">
                     <div className="flex items-center space-x-3 flex-1">
-                      <Award className={`h-6 w-6 text-${cert.color}-600`} />
+                      <Award
+                        className={`h-6 w-6 ${
+                          cert.color === "indigo"
+                            ? "text-indigo-600"
+                            : cert.color === "emerald"
+                              ? "text-emerald-600"
+                              : cert.color === "amber"
+                                ? "text-amber-600"
+                                : "text-blue-600"
+                        }`}
+                      />
                       <div className="flex-1">
-                        <CardTitle className="text-slate-900 text-lg group-hover:text-emerald-700 transition-colors">
+                        <CardTitle className="text-slate-900 text-lg">
                           <Link
                             href={cert.link}
                             target="_blank"
@@ -556,16 +563,35 @@ export default function RiteshPortfolio() {
                             {cert.title}
                           </Link>
                         </CardTitle>
-                        <CardDescription className={`text-${cert.color}-700`}>{cert.issuer}</CardDescription>
+                        <CardDescription
+                          className={`${
+                            cert.color === "indigo"
+                              ? "text-indigo-700"
+                              : cert.color === "emerald"
+                                ? "text-emerald-700"
+                                : cert.color === "amber"
+                                  ? "text-amber-700"
+                                  : "text-blue-700"
+                          }`}
+                        >
+                          {cert.issuer}
+                        </CardDescription>
                         {cert.credentialId !== "N/A" && (
                           <p className="text-xs text-slate-500 mt-1">Credential ID: {cert.credentialId}</p>
                         )}
                       </div>
-                      <ExternalLink
-                        className={`h-4 w-4 text-${cert.color}-600 opacity-0 group-hover:opacity-100 transition-opacity`}
-                      />
                     </div>
-                    <Badge className={`bg-${cert.color}-100 text-${cert.color}-700 border-${cert.color}-200 ml-2`}>
+                    <Badge
+                      className={`${
+                        cert.color === "indigo"
+                          ? "bg-indigo-100 text-indigo-700 border-indigo-200"
+                          : cert.color === "emerald"
+                            ? "bg-emerald-100 text-emerald-700 border-emerald-200"
+                            : cert.color === "amber"
+                              ? "bg-amber-100 text-amber-700 border-amber-200"
+                              : "bg-blue-100 text-blue-700 border-blue-200"
+                      } ml-2`}
+                    >
                       {cert.date}
                     </Badge>
                   </div>
@@ -584,25 +610,23 @@ export default function RiteshPortfolio() {
             I'm always interested in new opportunities and exciting projects. Let's discuss how we can work together!
           </p>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-8">
-            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg shadow-lg hover:shadow-xl transition-shadow group">
+            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg shadow-lg hover:shadow-xl transition-shadow">
               <CardContent className="p-6 text-center">
                 <Link href="mailto:riteshkakade275@gmail.com" className="block">
-                  <Mail className="h-8 w-8 text-indigo-600 mx-auto mb-2 group-hover:text-emerald-600 transition-colors" />
-                  <p className="text-slate-600 text-sm group-hover:text-slate-900 transition-colors">
-                    riteshkakade275@gmail.com
-                  </p>
+                  <Mail className="h-8 w-8 text-indigo-600 mx-auto mb-2" />
+                  <p className="text-slate-600 text-sm">riteshkakade275@gmail.com</p>
                 </Link>
               </CardContent>
             </Card>
-            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg shadow-lg hover:shadow-xl transition-shadow group">
+            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg shadow-lg hover:shadow-xl transition-shadow">
               <CardContent className="p-6 text-center">
                 <Link href="tel:+919175357169" className="block">
-                  <Phone className="h-8 w-8 text-emerald-600 mx-auto mb-2 group-hover:text-amber-600 transition-colors" />
-                  <p className="text-slate-600 text-sm group-hover:text-slate-900 transition-colors">+91 9175357169</p>
+                  <Phone className="h-8 w-8 text-emerald-600 mx-auto mb-2" />
+                  <p className="text-slate-600 text-sm">+91 9175357169</p>
                 </Link>
               </CardContent>
             </Card>
-            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg shadow-lg hover:shadow-xl transition-shadow group">
+            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg shadow-lg hover:shadow-xl transition-shadow">
               <CardContent className="p-6 text-center">
                 <Link
                   href="https://www.linkedin.com/in/ritesh-kakade-6b8514366"
@@ -610,18 +634,16 @@ export default function RiteshPortfolio() {
                   rel="noopener noreferrer"
                   className="block"
                 >
-                  <Linkedin className="h-8 w-8 text-amber-600 mx-auto mb-2 group-hover:text-indigo-600 transition-colors" />
-                  <p className="text-slate-600 text-sm group-hover:text-slate-900 transition-colors">Ritesh Kakade</p>
+                  <Linkedin className="h-8 w-8 text-amber-600 mx-auto mb-2" />
+                  <p className="text-slate-600 text-sm">Ritesh Kakade</p>
                 </Link>
               </CardContent>
             </Card>
-            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg shadow-lg hover:shadow-xl transition-shadow group">
+            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg shadow-lg hover:shadow-xl transition-shadow">
               <CardContent className="p-6 text-center">
                 <Link href="https://github.com/ritesh275" target="_blank" rel="noopener noreferrer" className="block">
-                  <Github className="h-8 w-8 text-indigo-600 mx-auto mb-2 group-hover:text-emerald-600 transition-colors" />
-                  <p className="text-slate-600 text-sm group-hover:text-slate-900 transition-colors">
-                    github.com/ritesh275
-                  </p>
+                  <Github className="h-8 w-8 text-indigo-600 mx-auto mb-2" />
+                  <p className="text-slate-600 text-sm">github.com/ritesh275</p>
                 </Link>
               </CardContent>
             </Card>
