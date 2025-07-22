@@ -312,7 +312,7 @@ export default function RiteshPortfolio() {
                       </Link>
                     </p>
                   </div>
-                  <Badge className="bg-indigo-100 text-indigo-700 border-indigo-200 text-xs">Aug 2024 - Nov 2024</Badge>
+                  <Badge className="bg-indigo-100 text-indigo-700 border-indigo-200 text-xs">Aug 2024 - Present</Badge>
                 </div>
                 <p className="text-slate-600 text-sm">
                   Worked remotely as an AI Coding Expert, contributing to AI-driven coding solutions and optimizing AI
