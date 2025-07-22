@@ -3,6 +3,7 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Chatbot } from "@/components/chatbot"
 import {
   Linkedin,
   Mail,
@@ -775,6 +776,9 @@ export default function RiteshPortfolio() {
           </div>
         </div>
       </footer>
+
+      {/* AI Chatbot */}
+      <Chatbot />
     </div>
   )
 }
