@@ -59,23 +59,23 @@ export default function RiteshPortfolio() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-indigo-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-emerald-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
-        <div className="absolute top-40 left-40 w-80 h-80 bg-amber-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-emerald-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse animation-delay-2000"></div>
+        <div className="absolute top-40 left-40 w-80 h-80 bg-amber-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse animation-delay-4000"></div>
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 z-50 w-full border-b border-indigo-500/20 bg-black/30 backdrop-blur-lg supports-[backdrop-filter]:bg-black/30">
+      <nav className="fixed top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-lg supports-[backdrop-filter]:bg-white/80">
         <div className="container flex h-14 items-center">
           <div className="mr-4 flex">
             <button
               onClick={() => scrollToSection("hero")}
-              className="mr-6 flex items-center space-x-2 text-indigo-300 hover:text-indigo-400 transition-colors"
+              className="mr-6 flex items-center space-x-2 text-slate-700 hover:text-slate-900 transition-colors"
             >
-              <span className="font-bold text-xl bg-gradient-to-r from-indigo-400 to-emerald-400 bg-clip-text text-transparent">
+              <span className="font-bold text-xl bg-gradient-to-r from-indigo-600 to-emerald-600 bg-clip-text text-transparent">
                 Ritesh Kakade
               </span>
             </button>
@@ -87,7 +87,7 @@ export default function RiteshPortfolio() {
                   key={section}
                   onClick={() => scrollToSection(section)}
                   className={`text-sm font-medium transition-colors capitalize ${
-                    activeSection === section ? "text-emerald-400" : "text-indigo-300/70 hover:text-indigo-300"
+                    activeSection === section ? "text-emerald-600" : "text-slate-600 hover:text-slate-900"
                   }`}
                 >
                   {section}
@@ -105,7 +105,7 @@ export default function RiteshPortfolio() {
           {[...Array(6)].map((_, i) => (
             <div
               key={i}
-              className={`absolute w-2 h-2 bg-gradient-to-r from-indigo-400 to-emerald-400 rounded-full animate-particle opacity-20`}
+              className={`absolute w-2 h-2 bg-gradient-to-r from-indigo-400 to-emerald-400 rounded-full animate-particle opacity-40`}
               style={{
                 left: `${Math.random() * 100}%`,
                 animationDelay: `${i * 2}s`,
@@ -122,8 +122,8 @@ export default function RiteshPortfolio() {
         >
           <div className="relative animate-float">
             <div className="w-24 h-24 rounded-full bg-gradient-to-r from-indigo-500 to-emerald-500 flex items-center justify-center animate-glow">
-              <div className="w-[90px] h-[90px] rounded-full bg-indigo-900 flex items-center justify-center">
-                <User className="h-12 w-12 text-emerald-400 animate-pulse-slow" />
+              <div className="w-[90px] h-[90px] rounded-full bg-white flex items-center justify-center">
+                <User className="h-12 w-12 text-emerald-600 animate-pulse-slow" />
               </div>
             </div>
             <div className="absolute -top-2 -right-2 w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center animate-wave">
@@ -132,17 +132,17 @@ export default function RiteshPortfolio() {
           </div>
 
           <div className="space-y-3">
-            <h1 className="text-3xl font-normal tracking-tighter sm:text-4xl md:text-5xl text-indigo-100 font-display animate-fade-in">
+            <h1 className="text-3xl font-normal tracking-tighter sm:text-4xl md:text-5xl text-slate-900 font-display animate-fade-in">
               Hi, I'm{" "}
-              <span className="bg-gradient-to-r from-emerald-400 via-amber-400 to-indigo-400 bg-clip-text text-transparent animate-gradient font-bold">
+              <span className="bg-gradient-to-r from-emerald-600 via-amber-500 to-indigo-600 bg-clip-text text-transparent animate-gradient font-bold">
                 Ritesh Kakade
               </span>
             </h1>
             <div className="mx-auto max-w-[700px] space-y-2 animate-slide-up animation-delay-1000">
-              <p className="text-lg text-emerald-300 font-semibold animate-shimmer bg-gradient-to-r from-emerald-300 via-emerald-200 to-emerald-300 bg-clip-text">
+              <p className="text-lg text-emerald-700 font-semibold animate-shimmer bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-700 bg-clip-text">
                 Computer Engineer & AI Coding Expert
               </p>
-              <p className="text-base text-indigo-200/80">
+              <p className="text-base text-slate-600">
                 Aspiring computer engineer with expertise in web development, AI/ML, and sign language interpretation.
                 Passionate about creating innovative solutions and contributing to cutting-edge projects.
               </p>
@@ -152,7 +152,7 @@ export default function RiteshPortfolio() {
           <div className="flex flex-col sm:flex-row gap-4 animate-scale-in animation-delay-2000">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700 text-indigo-100 border-0 transform hover:scale-105 transition-all duration-200 animate-glow"
+              className="bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700 text-white border-0 transform hover:scale-105 transition-all duration-200 animate-glow"
               onClick={() => scrollToSection("projects")}
             >
               <Star className="mr-2 h-4 w-4 animate-spin-slow" />
@@ -161,7 +161,7 @@ export default function RiteshPortfolio() {
             <Button
               size="lg"
               variant="outline"
-              className="border-emerald-400 text-emerald-400 hover:bg-emerald-400/20 hover:text-emerald-300 transform hover:scale-105 transition-all duration-200 bg-transparent"
+              className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 hover:text-emerald-700 transform hover:scale-105 transition-all duration-200 bg-transparent"
               onClick={() => scrollToSection("contact")}
             >
               <Mail className="mr-2 h-4 w-4 animate-bounce-slow" />
@@ -173,7 +173,7 @@ export default function RiteshPortfolio() {
             <Button
               variant="ghost"
               size="icon"
-              className="text-indigo-300 hover:text-emerald-400 hover:bg-indigo-500/10 transform hover:scale-110 transition-all duration-300"
+              className="text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 transform hover:scale-110 transition-all duration-300"
               asChild
             >
               <Link
@@ -188,7 +188,7 @@ export default function RiteshPortfolio() {
             <Button
               variant="ghost"
               size="icon"
-              className="text-indigo-300 hover:text-emerald-400 hover:bg-indigo-500/10 transform hover:scale-110 transition-all duration-300"
+              className="text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 transform hover:scale-110 transition-all duration-300"
               asChild
             >
               <Link href="mailto:riteshkakade275@gmail.com">
@@ -199,7 +199,7 @@ export default function RiteshPortfolio() {
             <Button
               variant="ghost"
               size="icon"
-              className="text-indigo-300 hover:text-emerald-400 hover:bg-indigo-500/10 transform hover:scale-110 transition-all duration-300"
+              className="text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 transform hover:scale-110 transition-all duration-300"
               asChild
             >
               <Link href="tel:+919175357169">
@@ -210,7 +210,7 @@ export default function RiteshPortfolio() {
             <Button
               variant="ghost"
               size="icon"
-              className="text-indigo-300 hover:text-emerald-400 hover:bg-indigo-500/10 transform hover:scale-110 transition-all duration-300"
+              className="text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 transform hover:scale-110 transition-all duration-300"
               asChild
             >
               <Link href="https://github.com/riteshkakade" target="_blank" rel="noopener noreferrer">
@@ -225,59 +225,59 @@ export default function RiteshPortfolio() {
       {/* About Section */}
       <section id="about" className="relative container px-4 py-20">
         <div className="mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold tracking-tighter mb-10 text-center text-indigo-100">About Me</h2>
+          <h2 className="text-3xl font-bold tracking-tighter mb-10 text-center text-slate-900">About Me</h2>
           <div className="grid gap-8 md:grid-cols-2 items-center">
-            <Card className="bg-indigo-900/30 border-indigo-500/20 backdrop-blur-lg hover:bg-indigo-800/30 transition-all duration-300 transform hover:scale-105">
+            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg hover:bg-white/90 transition-all duration-300 transform hover:scale-105">
               <CardContent className="p-6 space-y-4">
-                <div className="flex items-center space-x-2 text-amber-400">
+                <div className="flex items-center space-x-2 text-amber-600">
                   <GraduationCap className="h-5 w-5" />
                   <span>Bachelor of Computer Engineering</span>
                 </div>
-                <div className="flex items-center space-x-2 text-indigo-400">
+                <div className="flex items-center space-x-2 text-indigo-600">
                   <Calendar className="h-5 w-5" />
                   <span>Savitribai Phule Pune University (2021-2024)</span>
                 </div>
-                <div className="mt-3 text-indigo-200/90 border-l-2 border-indigo-500/30 pl-3">
+                <div className="mt-3 text-slate-700 border-l-2 border-indigo-200 pl-3">
                   <p>Gained strong foundational knowledge in software development, algorithms, and system design.</p>
                   <p>Specialized in AI/ML applications and web development technologies.</p>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-indigo-500/20 to-emerald-500/20 border-indigo-500/20 backdrop-blur-lg hover:scale-105 transition-all duration-300">
+            <Card className="bg-gradient-to-br from-indigo-50 to-emerald-50 border-slate-200 backdrop-blur-lg hover:scale-105 transition-all duration-300">
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-indigo-100 mb-4">Special Skills</h3>
+                <h3 className="text-xl font-semibold text-slate-900 mb-4">Special Skills</h3>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-3 group hover:scale-105 transition-all duration-300">
                     <div className="relative">
                       <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full flex items-center justify-center animate-pulse">
-                        <Globe className="h-5 w-5 text-slate-900" />
+                        <Globe className="h-5 w-5 text-white" />
                       </div>
                       <div className="absolute inset-0 bg-emerald-500 rounded-full animate-ping opacity-20"></div>
                     </div>
-                    <span className="text-emerald-300 font-medium group-hover:text-emerald-200 transition-colors">
+                    <span className="text-emerald-700 font-medium group-hover:text-emerald-800 transition-colors">
                       Sign Language Interpreter (ASL)
                     </span>
                   </div>
                   <div className="flex items-center space-x-3 group hover:scale-105 transition-all duration-300">
                     <div className="relative">
                       <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center animate-pulse animation-delay-1000">
-                        <Brain className="h-5 w-5 text-slate-900" />
+                        <Brain className="h-5 w-5 text-white" />
                       </div>
                       <div className="absolute inset-0 bg-amber-500 rounded-full animate-ping opacity-20 animation-delay-1000"></div>
                     </div>
-                    <span className="text-amber-300 font-medium group-hover:text-amber-200 transition-colors">
+                    <span className="text-amber-700 font-medium group-hover:text-amber-800 transition-colors">
                       AI & Machine Learning Expert
                     </span>
                   </div>
                   <div className="flex items-center space-x-3 group hover:scale-105 transition-all duration-300">
                     <div className="relative">
                       <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center animate-pulse animation-delay-2000">
-                        <Zap className="h-5 w-5 text-slate-900" />
+                        <Zap className="h-5 w-5 text-white" />
                       </div>
                       <div className="absolute inset-0 bg-indigo-500 rounded-full animate-ping opacity-20 animation-delay-2000"></div>
                     </div>
-                    <span className="text-indigo-300 font-medium group-hover:text-indigo-200 transition-colors">
+                    <span className="text-indigo-700 font-medium group-hover:text-indigo-800 transition-colors">
                       Full-Stack Web Developer
                     </span>
                   </div>
@@ -291,62 +291,60 @@ export default function RiteshPortfolio() {
       {/* Experience Section */}
       <section id="experience" className="relative container px-4 py-16">
         <div className="mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold tracking-tighter mb-8 text-center text-indigo-100">Work Experience</h2>
+          <h2 className="text-3xl font-bold tracking-tighter mb-8 text-center text-slate-900">Work Experience</h2>
           <div className="space-y-6">
-            <Card className="bg-gradient-to-r from-indigo-500/10 to-transparent border-l-4 border-indigo-500 backdrop-blur-lg hover:bg-indigo-800/20 transition-all duration-500 transform hover:scale-[1.02] hover:shadow-xl hover:shadow-indigo-500/10">
+            <Card className="bg-gradient-to-r from-indigo-50 to-transparent border-l-4 border-indigo-500 backdrop-blur-lg hover:bg-indigo-50 transition-all duration-500 transform hover:scale-[1.02] hover:shadow-xl">
               <CardContent className="p-4 bg-transparent">
                 <div className="flex justify-between items-start mb-3">
                   <div className="space-y-1">
-                    <h3 className="text-lg font-semibold text-indigo-100 flex items-center gap-2">
-                      <div className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse"></div>
+                    <h3 className="text-lg font-semibold text-slate-900 flex items-center gap-2">
+                      <div className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></div>
                       AI Coding Expert
                     </h3>
-                    <p className="text-emerald-300 font-medium">
+                    <p className="text-emerald-700 font-medium">
                       <Link
                         href="https://outlier.ai"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-emerald-200 transition-colors underline decoration-emerald-400/30 hover:decoration-emerald-400"
+                        className="hover:text-emerald-800 transition-colors underline decoration-emerald-400/30 hover:decoration-emerald-600"
                       >
                         Outlier AI - Remote
                       </Link>
                     </p>
                   </div>
-                  <Badge className="bg-indigo-500/20 text-indigo-300 border-indigo-500/30 text-xs">
-                    Aug 2024 - Nov 2024
-                  </Badge>
+                  <Badge className="bg-indigo-100 text-indigo-700 border-indigo-200 text-xs">Aug 2024 - Nov 2024</Badge>
                 </div>
-                <p className="text-indigo-200/80 text-sm">
+                <p className="text-slate-600 text-sm">
                   Worked remotely as an AI Coding Expert, contributing to AI-driven coding solutions and optimizing AI
                   models for coding automation.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-r from-emerald-500/10 to-transparent border-l-4 border-emerald-500 backdrop-blur-lg hover:bg-emerald-800/20 transition-all duration-500 transform hover:scale-[1.02] hover:shadow-xl hover:shadow-emerald-500/10">
+            <Card className="bg-gradient-to-r from-emerald-50 to-transparent border-l-4 border-emerald-500 backdrop-blur-lg hover:bg-emerald-50 transition-all duration-500 transform hover:scale-[1.02] hover:shadow-xl">
               <CardContent className="p-4 bg-transparent">
                 <div className="flex justify-between items-start mb-3">
                   <div className="space-y-1">
-                    <h3 className="text-lg font-semibold text-indigo-100 flex items-center gap-2">
-                      <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    <h3 className="text-lg font-semibold text-slate-900 flex items-center gap-2">
+                      <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
                       Web Development Intern
                     </h3>
-                    <p className="text-emerald-300 font-medium">
+                    <p className="text-emerald-700 font-medium">
                       <Link
                         href="https://suvenconsultants.com"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-emerald-200 transition-colors underline decoration-emerald-400/30 hover:decoration-emerald-400"
+                        className="hover:text-emerald-800 transition-colors underline decoration-emerald-400/30 hover:decoration-emerald-600"
                       >
                         Suven Consultants & Technology Pvt. Ltd.
                       </Link>
                     </p>
                   </div>
-                  <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 text-xs">
+                  <Badge className="bg-emerald-100 text-emerald-700 border-emerald-200 text-xs">
                     Apr 2023 - May 2023
                   </Badge>
                 </div>
-                <p className="text-indigo-200/80 text-sm">
+                <p className="text-slate-600 text-sm">
                   Gained hands-on experience in web development concepts and successfully participated in a
                   performance-assessed program.
                 </p>
@@ -359,7 +357,7 @@ export default function RiteshPortfolio() {
       {/* Projects Section */}
       <section id="projects" className="relative container px-4 py-20">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold tracking-tighter mb-10 text-center text-indigo-100">Featured Projects</h2>
+          <h2 className="text-3xl font-bold tracking-tighter mb-10 text-center text-slate-900">Featured Projects</h2>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
@@ -441,7 +439,7 @@ export default function RiteshPortfolio() {
             ].map((project, index) => (
               <Card
                 key={index}
-                className="group bg-indigo-900/30 border-indigo-500/20 backdrop-blur-lg hover:bg-indigo-800/30 transition-all duration-300 transform hover:scale-105 overflow-hidden"
+                className="group bg-white/80 border-slate-200 backdrop-blur-lg hover:bg-white/90 transition-all duration-300 transform hover:scale-105 overflow-hidden"
               >
                 <div className={`h-2 bg-gradient-to-r ${project.gradient}`}></div>
                 <div className="h-32 relative overflow-hidden">
@@ -455,18 +453,18 @@ export default function RiteshPortfolio() {
                   />
                 </div>
                 <CardHeader className="bg-transparent pb-3">
-                  <CardTitle className="text-indigo-100 group-hover:text-emerald-300 transition-colors text-lg">
+                  <CardTitle className="text-slate-900 group-hover:text-emerald-700 transition-colors text-lg">
                     {project.title}
                   </CardTitle>
-                  <CardDescription className="text-indigo-200/70 text-sm">{project.description}</CardDescription>
+                  <CardDescription className="text-slate-600 text-sm">{project.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="bg-transparent pt-0">
                   {project.features && (
                     <div className="mb-3">
-                      <ul className="text-xs text-indigo-300/80 space-y-1">
+                      <ul className="text-xs text-slate-600 space-y-1">
                         {project.features.slice(0, 2).map((feature, idx) => (
                           <li key={idx} className="flex items-start">
-                            <span className="text-emerald-400 mr-1">•</span>
+                            <span className="text-emerald-600 mr-1">•</span>
                             {feature}
                           </li>
                         ))}
@@ -478,7 +476,7 @@ export default function RiteshPortfolio() {
                       <Badge
                         key={tech}
                         variant="outline"
-                        className="border-indigo-500/20 text-indigo-200/80 bg-transparent text-xs px-2 py-0"
+                        className="border-slate-200 text-slate-600 bg-transparent text-xs px-2 py-0"
                       >
                         {tech}
                       </Badge>
@@ -486,7 +484,7 @@ export default function RiteshPortfolio() {
                     {project.tech.length > 3 && (
                       <Badge
                         variant="outline"
-                        className="border-indigo-500/20 text-indigo-200/60 bg-transparent text-xs px-2 py-0"
+                        className="border-slate-200 text-slate-500 bg-transparent text-xs px-2 py-0"
                       >
                         +{project.tech.length - 3}
                       </Badge>
@@ -502,14 +500,14 @@ export default function RiteshPortfolio() {
       {/* Skills Section */}
       <section id="skills" className="relative container px-4 py-20">
         <div className="mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold tracking-tighter mb-10 text-center text-indigo-100">
+          <h2 className="text-3xl font-bold tracking-tighter mb-10 text-center text-slate-900">
             Skills & Technologies
           </h2>
           <div className="grid gap-6 md:grid-cols-3">
-            <Card className="bg-gradient-to-br from-indigo-500/20 to-blue-500/20 border-indigo-500/20 backdrop-blur-lg hover:scale-105 transition-all duration-300">
+            <Card className="bg-gradient-to-br from-indigo-50 to-blue-50 border-slate-200 backdrop-blur-lg hover:scale-105 transition-all duration-300">
               <CardHeader className="bg-transparent">
-                <CardTitle className="text-indigo-100 flex items-center">
-                  <Code className="mr-2 h-5 w-5 text-indigo-400" />
+                <CardTitle className="text-slate-900 flex items-center">
+                  <Code className="mr-2 h-5 w-5 text-indigo-600" />
                   Programming
                 </CardTitle>
               </CardHeader>
@@ -518,7 +516,7 @@ export default function RiteshPortfolio() {
                   {["Python", "Java", "C++", "JavaScript"].map((skill) => (
                     <Badge
                       key={skill}
-                      className="bg-indigo-500/20 text-indigo-300 border-indigo-500/30 hover:bg-indigo-500/30 transition-colors"
+                      className="bg-indigo-100 text-indigo-700 border-indigo-200 hover:bg-indigo-200 transition-colors"
                     >
                       {skill}
                     </Badge>
@@ -527,10 +525,10 @@ export default function RiteshPortfolio() {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border-emerald-500/20 backdrop-blur-lg hover:scale-105 transition-all duration-300">
+            <Card className="bg-gradient-to-br from-emerald-50 to-teal-50 border-slate-200 backdrop-blur-lg hover:scale-105 transition-all duration-300">
               <CardHeader className="bg-transparent">
-                <CardTitle className="text-indigo-100 flex items-center">
-                  <Brain className="mr-2 h-5 w-5 text-emerald-400" />
+                <CardTitle className="text-slate-900 flex items-center">
+                  <Brain className="mr-2 h-5 w-5 text-emerald-600" />
                   AI & ML
                 </CardTitle>
               </CardHeader>
@@ -539,7 +537,7 @@ export default function RiteshPortfolio() {
                   {["OpenAI GPT", "LangChain", "Machine Learning", "Natural Language Processing"].map((skill) => (
                     <Badge
                       key={skill}
-                      className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 hover:bg-emerald-500/30 transition-colors"
+                      className="bg-emerald-100 text-emerald-700 border-emerald-200 hover:bg-emerald-200 transition-colors"
                     >
                       {skill}
                     </Badge>
@@ -548,10 +546,10 @@ export default function RiteshPortfolio() {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-amber-500/20 to-orange-500/20 border-amber-500/20 backdrop-blur-lg hover:scale-105 transition-all duration-300">
+            <Card className="bg-gradient-to-br from-amber-50 to-orange-50 border-slate-200 backdrop-blur-lg hover:scale-105 transition-all duration-300">
               <CardHeader className="bg-transparent">
-                <CardTitle className="text-indigo-100 flex items-center">
-                  <Briefcase className="mr-2 h-5 w-5 text-amber-400" />
+                <CardTitle className="text-slate-900 flex items-center">
+                  <Briefcase className="mr-2 h-5 w-5 text-amber-600" />
                   Web & Tools
                 </CardTitle>
               </CardHeader>
@@ -560,7 +558,7 @@ export default function RiteshPortfolio() {
                   {["React", "Flask", "HTML/CSS", "Git", "REST APIs"].map((skill) => (
                     <Badge
                       key={skill}
-                      className="bg-amber-500/20 text-amber-300 border-amber-500/30 hover:bg-amber-500/30 transition-colors"
+                      className="bg-amber-100 text-amber-700 border-amber-200 hover:bg-amber-200 transition-colors"
                     >
                       {skill}
                     </Badge>
@@ -575,7 +573,7 @@ export default function RiteshPortfolio() {
       {/* Certifications Section */}
       <section id="certifications" className="relative container px-4 py-20">
         <div className="mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold tracking-tighter mb-10 text-center text-indigo-100">Certifications</h2>
+          <h2 className="text-3xl font-bold tracking-tighter mb-10 text-center text-slate-900">Certifications</h2>
           <div className="grid gap-6 md:grid-cols-2">
             {[
               {
@@ -613,35 +611,33 @@ export default function RiteshPortfolio() {
             ].map((cert, index) => (
               <Card
                 key={index}
-                className="bg-indigo-900/30 border-indigo-500/20 backdrop-blur-lg hover:bg-indigo-800/30 transition-all duration-300 transform hover:scale-105 group"
+                className="bg-white/80 border-slate-200 backdrop-blur-lg hover:bg-white/90 transition-all duration-300 transform hover:scale-105 group"
               >
                 <CardHeader className="bg-transparent">
                   <div className="flex items-start justify-between">
                     <div className="flex items-center space-x-3 flex-1">
-                      <Award className={`h-6 w-6 text-${cert.color}-400`} />
+                      <Award className={`h-6 w-6 text-${cert.color}-600`} />
                       <div className="flex-1">
-                        <CardTitle className="text-indigo-100 text-lg group-hover:text-emerald-300 transition-colors">
+                        <CardTitle className="text-slate-900 text-lg group-hover:text-emerald-700 transition-colors">
                           <Link
                             href={cert.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hover:underline decoration-emerald-400/30 hover:decoration-emerald-400"
+                            className="hover:underline decoration-emerald-400/30 hover:decoration-emerald-600"
                           >
                             {cert.title}
                           </Link>
                         </CardTitle>
-                        <CardDescription className={`text-${cert.color}-300`}>{cert.issuer}</CardDescription>
+                        <CardDescription className={`text-${cert.color}-700`}>{cert.issuer}</CardDescription>
                         {cert.credentialId !== "N/A" && (
-                          <p className="text-xs text-indigo-400/60 mt-1">Credential ID: {cert.credentialId}</p>
+                          <p className="text-xs text-slate-500 mt-1">Credential ID: {cert.credentialId}</p>
                         )}
                       </div>
                       <ExternalLink
-                        className={`h-4 w-4 text-${cert.color}-400 opacity-0 group-hover:opacity-100 transition-opacity`}
+                        className={`h-4 w-4 text-${cert.color}-600 opacity-0 group-hover:opacity-100 transition-opacity`}
                       />
                     </div>
-                    <Badge
-                      className={`bg-${cert.color}-500/20 text-${cert.color}-300 border-${cert.color}-500/30 ml-2`}
-                    >
+                    <Badge className={`bg-${cert.color}-100 text-${cert.color}-700 border-${cert.color}-200 ml-2`}>
                       {cert.date}
                     </Badge>
                   </div>
@@ -655,32 +651,30 @@ export default function RiteshPortfolio() {
       {/* Contact Section */}
       <section id="contact" className="relative container px-4 py-20">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tighter mb-8 text-indigo-100">Let's Connect</h2>
-          <p className="text-indigo-200/80 mb-8 text-lg">
+          <h2 className="text-3xl font-bold tracking-tighter mb-8 text-slate-900">Let's Connect</h2>
+          <p className="text-slate-600 mb-8 text-lg">
             I'm always interested in new opportunities and exciting projects. Let's discuss how we can work together!
           </p>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-8">
-            <Card className="bg-indigo-900/30 border-indigo-500/20 backdrop-blur-lg hover:bg-indigo-800/30 transition-all duration-300 transform hover:scale-105 group">
+            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg hover:bg-white/90 transition-all duration-300 transform hover:scale-105 group">
               <CardContent className="p-6 text-center bg-transparent">
                 <Link href="mailto:riteshkakade275@gmail.com" className="block">
-                  <Mail className="h-8 w-8 text-indigo-400 mx-auto mb-2 group-hover:text-emerald-400 transition-colors" />
-                  <p className="text-indigo-200/80 text-sm group-hover:text-indigo-100 transition-colors">
+                  <Mail className="h-8 w-8 text-indigo-600 mx-auto mb-2 group-hover:text-emerald-600 transition-colors" />
+                  <p className="text-slate-600 text-sm group-hover:text-slate-900 transition-colors">
                     riteshkakade275@gmail.com
                   </p>
                 </Link>
               </CardContent>
             </Card>
-            <Card className="bg-indigo-900/30 border-indigo-500/20 backdrop-blur-lg hover:bg-indigo-800/30 transition-all duration-300 transform hover:scale-105 group">
+            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg hover:bg-white/90 transition-all duration-300 transform hover:scale-105 group">
               <CardContent className="p-6 text-center bg-transparent">
                 <Link href="tel:+919175357169" className="block">
-                  <Phone className="h-8 w-8 text-emerald-400 mx-auto mb-2 group-hover:text-amber-400 transition-colors" />
-                  <p className="text-indigo-200/80 text-sm group-hover:text-indigo-100 transition-colors">
-                    +91 9175357169
-                  </p>
+                  <Phone className="h-8 w-8 text-emerald-600 mx-auto mb-2 group-hover:text-amber-600 transition-colors" />
+                  <p className="text-slate-600 text-sm group-hover:text-slate-900 transition-colors">+91 9175357169</p>
                 </Link>
               </CardContent>
             </Card>
-            <Card className="bg-indigo-900/30 border-indigo-500/20 backdrop-blur-lg hover:bg-indigo-800/30 transition-all duration-300 transform hover:scale-105 group">
+            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg hover:bg-white/90 transition-all duration-300 transform hover:scale-105 group">
               <CardContent className="p-6 text-center bg-transparent">
                 <Link
                   href="https://www.linkedin.com/in/ritesh-kakade-6b8514366"
@@ -688,14 +682,12 @@ export default function RiteshPortfolio() {
                   rel="noopener noreferrer"
                   className="block"
                 >
-                  <Linkedin className="h-8 w-8 text-amber-400 mx-auto mb-2 group-hover:text-indigo-400 transition-colors" />
-                  <p className="text-indigo-200/80 text-sm group-hover:text-indigo-100 transition-colors">
-                    Ritesh Kakade
-                  </p>
+                  <Linkedin className="h-8 w-8 text-amber-600 mx-auto mb-2 group-hover:text-indigo-600 transition-colors" />
+                  <p className="text-slate-600 text-sm group-hover:text-slate-900 transition-colors">Ritesh Kakade</p>
                 </Link>
               </CardContent>
             </Card>
-            <Card className="bg-indigo-900/30 border-indigo-500/20 backdrop-blur-lg hover:bg-indigo-800/30 transition-all duration-300 transform hover:scale-105 group">
+            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg hover:bg-white/90 transition-all duration-300 transform hover:scale-105 group">
               <CardContent className="p-6 text-center bg-transparent">
                 <Link
                   href="https://github.com/riteshkakade"
@@ -703,8 +695,8 @@ export default function RiteshPortfolio() {
                   rel="noopener noreferrer"
                   className="block"
                 >
-                  <Github className="h-8 w-8 text-indigo-400 mx-auto mb-2 group-hover:text-emerald-400 transition-colors" />
-                  <p className="text-indigo-200/80 text-sm group-hover:text-indigo-100 transition-colors">
+                  <Github className="h-8 w-8 text-indigo-600 mx-auto mb-2 group-hover:text-emerald-600 transition-colors" />
+                  <p className="text-slate-600 text-sm group-hover:text-slate-900 transition-colors">
                     github.com/riteshkakade
                   </p>
                 </Link>
@@ -714,7 +706,7 @@ export default function RiteshPortfolio() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700 text-indigo-100 border-0 transform hover:scale-105 transition-all duration-200"
+              className="bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700 text-white border-0 transform hover:scale-105 transition-all duration-200"
               asChild
             >
               <Link href="mailto:riteshkakade275@gmail.com">
@@ -725,7 +717,7 @@ export default function RiteshPortfolio() {
             <Button
               size="lg"
               variant="outline"
-              className="border-emerald-400 text-emerald-400 hover:bg-emerald-400/20 hover:text-emerald-300 transform hover:scale-105 transition-all duration-200 bg-transparent"
+              className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 hover:text-emerald-700 transform hover:scale-105 transition-all duration-200 bg-transparent"
               asChild
             >
               <Link
@@ -742,15 +734,15 @@ export default function RiteshPortfolio() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-indigo-500/20 py-8 bg-black/30 backdrop-blur-lg">
+      <footer className="border-t border-slate-200 py-8 bg-white/80 backdrop-blur-lg">
         <div className="container px-4">
           <div className="flex flex-col sm:flex-row justify-between items-center">
-            <p className="text-sm text-indigo-300/60">© 2024 Ritesh Kakade. All rights reserved.</p>
+            <p className="text-sm text-slate-500">© 2024 Ritesh Kakade. All rights reserved.</p>
             <div className="flex items-center space-x-4 mt-4 sm:mt-0">
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-indigo-300/60 hover:text-emerald-400 hover:bg-indigo-500/10"
+                className="text-slate-500 hover:text-emerald-600 hover:bg-emerald-50"
                 asChild
               >
                 <Link
@@ -765,7 +757,7 @@ export default function RiteshPortfolio() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-indigo-300/60 hover:text-emerald-400 hover:bg-indigo-500/10"
+                className="text-slate-500 hover:text-emerald-600 hover:bg-emerald-50"
                 asChild
               >
                 <Link href="mailto:riteshkakade275@gmail.com">
@@ -776,7 +768,7 @@ export default function RiteshPortfolio() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-indigo-300/60 hover:text-emerald-400 hover:bg-indigo-500/10"
+                className="text-slate-500 hover:text-emerald-600 hover:bg-emerald-50"
                 asChild
               >
                 <Link href="https://github.com/riteshkakade" target="_blank" rel="noopener noreferrer">
