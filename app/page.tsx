@@ -161,7 +161,7 @@ export default function RiteshPortfolio() {
             <Button
               size="lg"
               variant="outline"
-              className="border-emerald-400 text-emerald-400 hover:bg-emerald-400/20 hover:text-emerald-300 transform hover:scale-105 transition-all duration-200"
+              className="border-emerald-400 text-emerald-400 hover:bg-emerald-400/20 hover:text-emerald-300 transform hover:scale-105 transition-all duration-200 bg-transparent"
               onClick={() => scrollToSection("contact")}
             >
               <Mail className="mr-2 h-4 w-4 animate-bounce-slow" />
@@ -360,8 +360,36 @@ export default function RiteshPortfolio() {
       <section id="projects" className="relative container px-4 py-20">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold tracking-tighter mb-10 text-center text-indigo-100">Featured Projects</h2>
-          <div className="grid gap-8 md:grid-cols-3 lg:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
+              {
+                title: "AI-Powered Memory Chatbot",
+                description:
+                  "Conversational AI chatbot with session-based memory and context chaining for personalized interactions",
+                tech: ["Python", "OpenAI GPT", "LangChain", "Flask", "JavaScript"],
+                gradient: "from-purple-500 to-pink-500",
+                image: "/images/ai-memory-chatbot.png",
+                features: [
+                  "Session-based memory and context chaining",
+                  "OpenAI GPT integration for intelligent responses",
+                  "Custom JSON memory for conversation tracking",
+                  "Responsive frontend with Flask backend",
+                ],
+              },
+              {
+                title: "Code Explainer Pro",
+                description:
+                  "AI-powered tool that generates natural language explanations of code with visual flowcharts",
+                tech: ["Python", "OpenAI GPT", "Mermaid.js", "Flask", "JavaScript"],
+                gradient: "from-cyan-500 to-blue-500",
+                image: "/images/code-explainer-pro.png",
+                features: [
+                  "Multi-language code analysis and interpretation",
+                  "Mermaid.js flowchart visualization",
+                  "GitHub repo import functionality",
+                  "Markdown documentation export",
+                ],
+              },
               {
                 title: "Admin Dashboard",
                 description: "Comprehensive admin panel with data visualization and user management features",
@@ -406,23 +434,43 @@ export default function RiteshPortfolio() {
                     quality={90}
                   />
                 </div>
-                <CardHeader className="bg-transparent">
-                  <CardTitle className="text-indigo-100 group-hover:text-emerald-300 transition-colors">
+                <CardHeader className="bg-transparent pb-3">
+                  <CardTitle className="text-indigo-100 group-hover:text-emerald-300 transition-colors text-lg">
                     {project.title}
                   </CardTitle>
-                  <CardDescription className="text-indigo-200/70">{project.description}</CardDescription>
+                  <CardDescription className="text-indigo-200/70 text-sm">{project.description}</CardDescription>
                 </CardHeader>
-                <CardContent className="bg-transparent">
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech) => (
+                <CardContent className="bg-transparent pt-0">
+                  {project.features && (
+                    <div className="mb-3">
+                      <ul className="text-xs text-indigo-300/80 space-y-1">
+                        {project.features.slice(0, 2).map((feature, idx) => (
+                          <li key={idx} className="flex items-start">
+                            <span className="text-emerald-400 mr-1">•</span>
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  <div className="flex flex-wrap gap-1">
+                    {project.tech.slice(0, 3).map((tech) => (
                       <Badge
                         key={tech}
                         variant="outline"
-                        className="border-indigo-500/20 text-indigo-200/80 bg-transparent"
+                        className="border-indigo-500/20 text-indigo-200/80 bg-transparent text-xs px-2 py-0"
                       >
                         {tech}
                       </Badge>
                     ))}
+                    {project.tech.length > 3 && (
+                      <Badge
+                        variant="outline"
+                        className="border-indigo-500/20 text-indigo-200/60 bg-transparent text-xs px-2 py-0"
+                      >
+                        +{project.tech.length - 3}
+                      </Badge>
+                    )}
                   </div>
                 </CardContent>
               </Card>
@@ -462,13 +510,13 @@ export default function RiteshPortfolio() {
             <Card className="bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border-emerald-500/20 backdrop-blur-lg hover:scale-105 transition-all duration-300">
               <CardHeader className="bg-transparent">
                 <CardTitle className="text-indigo-100 flex items-center">
-                  <ExternalLink className="mr-2 h-5 w-5 text-emerald-400" />
-                  Web Development
+                  <Brain className="mr-2 h-5 w-5 text-emerald-400" />
+                  AI & ML
                 </CardTitle>
               </CardHeader>
               <CardContent className="bg-transparent">
                 <div className="flex flex-wrap gap-2">
-                  {["HTML", "CSS", "Bootstrap", "React", "REST APIs"].map((skill) => (
+                  {["OpenAI GPT", "LangChain", "Machine Learning", "Natural Language Processing"].map((skill) => (
                     <Badge
                       key={skill}
                       className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 hover:bg-emerald-500/30 transition-colors"
@@ -484,12 +532,12 @@ export default function RiteshPortfolio() {
               <CardHeader className="bg-transparent">
                 <CardTitle className="text-indigo-100 flex items-center">
                   <Briefcase className="mr-2 h-5 w-5 text-amber-400" />
-                  Tools & Others
+                  Web & Tools
                 </CardTitle>
               </CardHeader>
               <CardContent className="bg-transparent">
                 <div className="flex flex-wrap gap-2">
-                  {["VS Code", "Git", "AI/ML", "ASL", "Debugging"].map((skill) => (
+                  {["React", "Flask", "HTML/CSS", "Git", "REST APIs"].map((skill) => (
                     <Badge
                       key={skill}
                       className="bg-amber-500/20 text-amber-300 border-amber-500/30 hover:bg-amber-500/30 transition-colors"
