@@ -3,7 +3,6 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Chatbot } from "@/components/chatbot"
 import {
   Linkedin,
   Mail,
@@ -28,11 +27,9 @@ import { useEffect, useState } from "react"
 export default function RiteshPortfolio() {
   const [isVisible, setIsVisible] = useState(false)
   const [activeSection, setActiveSection] = useState("hero")
-  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
     setIsVisible(true)
-    setIsMounted(true)
 
     const handleScroll = () => {
       const sections = ["hero", "about", "experience", "projects", "skills", "certifications", "contact"]
@@ -59,10 +56,6 @@ export default function RiteshPortfolio() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
     }
-  }
-
-  if (!isMounted) {
-    return null // Return nothing during SSR
   }
 
   return (
@@ -782,9 +775,6 @@ export default function RiteshPortfolio() {
           </div>
         </div>
       </footer>
-
-      {/* AI Chatbot */}
-      <Chatbot />
     </div>
   )
 }

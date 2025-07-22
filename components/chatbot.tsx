@@ -1,137 +1,14 @@
 "use client"
 
-import type React from "react"
-
-import { useState, useEffect } from "react"
+import { useState } from "react"
+import { useChat } from "ai/react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { MessageCircle, X, Send, Bot, User } from "lucide-react"
 
-// Define message type
-type Message = {
-  id: string
-  role: "user" | "assistant"
-  content: string
-}
-
-// Pre-defined responses
-const responses = {
-  greeting: "Hello! I'm Ritesh's AI assistant. How can I help you today?",
-  projects:
-    "Ritesh has worked on several impressive projects including:\n\n• AI-Powered Memory Chatbot: A conversational AI with session-based memory\n• Code Explainer Pro: AI tool that generates explanations of code with flowcharts\n• Admin Dashboard: Data visualization and user management platform\n• Restaurant Website: Modern site with online ordering system\n• E-commerce Application: Full-featured platform with payment integration",
-  skills:
-    "Ritesh's key skills include:\n\n• Programming: Python, Java, C++, JavaScript\n• AI & ML: OpenAI GPT, LangChain, Machine Learning, NLP\n• Web Development: React, Flask, HTML/CSS, Git, REST APIs\n• Special Skills: Sign Language Interpretation (ASL)",
-  experience:
-    "Ritesh's work experience includes:\n\n• AI Coding Expert at Outlier AI (Aug 2024 - Present)\n• Frontend Developer Intern at Suven Consultants (Apr 2023 - May 2023)",
-  education: "Ritesh has a Bachelor of Computer Engineering from Savitribai Phule Pune University (2021-2024).",
-  contact:
-    "You can contact Ritesh through:\n\n• Email: riteshkakade275@gmail.com\n• Phone: +91 9175357169\n• LinkedIn: linkedin.com/in/ritesh-kakade-6b8514366\n• GitHub: github.com/ritesh275",
-  default:
-    "I'm not sure about that specific detail. For more information, I recommend reaching out to Ritesh directly at riteshkakade275@gmail.com.",
-}
-
-// Function to generate response based on user input
-function generateResponse(input: string): string {
-  const lowercaseInput = input.toLowerCase()
-
-  if (lowercaseInput.includes("hello") || lowercaseInput.includes("hi") || lowercaseInput.includes("hey")) {
-    return responses.greeting
-  } else if (
-    lowercaseInput.includes("project") ||
-    lowercaseInput.includes("work") ||
-    lowercaseInput.includes("portfolio") ||
-    lowercaseInput.includes("chatbot") ||
-    lowercaseInput.includes("code explainer")
-  ) {
-    return responses.projects
-  } else if (
-    lowercaseInput.includes("skill") ||
-    lowercaseInput.includes("technology") ||
-    lowercaseInput.includes("tech") ||
-    lowercaseInput.includes("programming") ||
-    lowercaseInput.includes("language")
-  ) {
-    return responses.skills
-  } else if (
-    lowercaseInput.includes("experience") ||
-    lowercaseInput.includes("job") ||
-    lowercaseInput.includes("work") ||
-    lowercaseInput.includes("career") ||
-    lowercaseInput.includes("outlier") ||
-    lowercaseInput.includes("suven")
-  ) {
-    return responses.experience
-  } else if (
-    lowercaseInput.includes("education") ||
-    lowercaseInput.includes("university") ||
-    lowercaseInput.includes("college") ||
-    lowercaseInput.includes("degree") ||
-    lowercaseInput.includes("study")
-  ) {
-    return responses.education
-  } else if (
-    lowercaseInput.includes("contact") ||
-    lowercaseInput.includes("email") ||
-    lowercaseInput.includes("phone") ||
-    lowercaseInput.includes("linkedin") ||
-    lowercaseInput.includes("github") ||
-    lowercaseInput.includes("reach")
-  ) {
-    return responses.contact
-  } else {
-    return responses.default
-  }
-}
-
 export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false)
-  const [messages, setMessages] = useState<Message[]>([])
-  const [input, setInput] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
-  const [isMounted, setIsMounted] = useState(false)
-
-  // Only run client-side
-  useEffect(() => {
-    setIsMounted(true)
-  }, [])
-
-  // Don't render anything on the server
-  if (!isMounted) {
-    return null
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-
-    if (!input.trim()) return
-
-    // Add user message
-    const userMessage: Message = {
-      id: Date.now().toString(),
-      role: "user",
-      content: input,
-    }
-
-    setMessages((prev) => [...prev, userMessage])
-    setInput("")
-    setIsLoading(true)
-
-    // Simulate AI thinking delay
-    setTimeout(() => {
-      // Generate response
-      const responseContent = generateResponse(userMessage.content)
-
-      // Add assistant message
-      const assistantMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        role: "assistant",
-        content: responseContent,
-      }
-
-      setMessages((prev) => [...prev, assistantMessage])
-      setIsLoading(false)
-    }, 1000)
-  }
+  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat()
 
   return (
     <>
@@ -183,12 +60,6 @@ export function Chatbot() {
                     <Bot className="h-8 w-8 mx-auto mb-2 text-indigo-600" />
                     <p>Hi! I'm Ritesh's AI assistant.</p>
                     <p>Ask me about his projects, skills, or experience!</p>
-                    <div className="mt-3 space-y-1 text-xs">
-                      <p className="text-slate-400">Try asking:</p>
-                      <p className="text-slate-400">"What projects has Ritesh worked on?"</p>
-                      <p className="text-slate-400">"Tell me about his skills"</p>
-                      <p className="text-slate-400">"How can I contact Ritesh?"</p>
-                    </div>
                   </div>
                 )}
 
@@ -206,7 +77,7 @@ export function Chatbot() {
                           <Bot className="h-4 w-4 mt-0.5 text-indigo-600 flex-shrink-0" />
                         )}
                         {message.role === "user" && <User className="h-4 w-4 mt-0.5 text-white flex-shrink-0" />}
-                        <div className="flex-1 whitespace-pre-wrap">{message.content}</div>
+                        <div className="flex-1">{message.content}</div>
                       </div>
                     </div>
                   </div>
@@ -219,14 +90,8 @@ export function Chatbot() {
                         <Bot className="h-4 w-4 text-indigo-600" />
                         <div className="flex space-x-1">
                           <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce"></div>
-                          <div
-                            className="w-2 h-2 bg-slate-400 rounded-full animate-bounce"
-                            style={{ animationDelay: "0.2s" }}
-                          ></div>
-                          <div
-                            className="w-2 h-2 bg-slate-400 rounded-full animate-bounce"
-                            style={{ animationDelay: "0.4s" }}
-                          ></div>
+                          <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce animation-delay-200"></div>
+                          <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce animation-delay-400"></div>
                         </div>
                       </div>
                     </div>
@@ -239,7 +104,7 @@ export function Chatbot() {
                 <form onSubmit={handleSubmit} className="flex space-x-2">
                   <input
                     value={input}
-                    onChange={(e) => setInput(e.target.value)}
+                    onChange={handleInputChange}
                     placeholder="Ask about Ritesh's work..."
                     className="flex-1 px-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                     disabled={isLoading}
