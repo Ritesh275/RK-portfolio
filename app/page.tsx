@@ -25,12 +25,9 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 
 export default function RiteshPortfolio() {
-  const [isVisible, setIsVisible] = useState(false)
   const [activeSection, setActiveSection] = useState("hero")
 
   useEffect(() => {
-    setIsVisible(true)
-
     const handleScroll = () => {
       const sections = ["hero", "about", "experience", "projects", "skills", "certifications", "contact"]
       const scrollPosition = window.scrollY + 100
@@ -60,7 +57,7 @@ export default function RiteshPortfolio() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
-      {/* Animated Background */}
+      {/* Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-emerald-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"></div>
@@ -68,7 +65,7 @@ export default function RiteshPortfolio() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-lg supports-[backdrop-filter]:bg-white/80">
+      <nav className="fixed top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-lg">
         <div className="container flex h-14 items-center">
           <div className="mr-4 flex">
             <button
@@ -99,38 +96,28 @@ export default function RiteshPortfolio() {
       </nav>
 
       {/* Hero Section */}
-      <section id="hero" className="relative container px-4 py-20 md:py-28 overflow-hidden">
-        {/* Enhanced Floating Particles with 3D effects */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none"></div>
-
-        <div
-          className={`flex flex-col items-center text-center space-y-8 transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-        >
+      <section id="hero" className="relative container px-4 py-20 md:py-28">
+        <div className="flex flex-col items-center text-center space-y-8">
           <div className="relative">
-            <div className="w-24 h-24 rounded-full bg-gradient-to-r from-indigo-500 to-emerald-500 flex items-center justify-center">
-              <div className="w-[90px] h-[90px] rounded-full bg-white flex items-center justify-center">
+            <div className="w-24 h-24 rounded-full bg-gradient-to-r from-indigo-500 to-emerald-500 flex items-center justify-center shadow-lg">
+              <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center">
                 <User className="h-12 w-12 text-emerald-600" />
               </div>
             </div>
             <div className="absolute -top-2 -right-2 w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">
               <span className="text-xs">👋</span>
             </div>
-            {/* Orbiting elements */}
           </div>
 
           <div className="space-y-3">
-            <h1 className="text-3xl font-normal tracking-tighter sm:text-4xl md:text-5xl text-slate-900 font-display">
+            <h1 className="text-3xl font-normal tracking-tighter sm:text-4xl md:text-5xl text-slate-900">
               Hi, I'm{" "}
               <span className="bg-gradient-to-r from-emerald-600 via-amber-500 to-indigo-600 bg-clip-text text-transparent font-bold">
                 Ritesh Kakade
               </span>
             </h1>
             <div className="mx-auto max-w-[700px] space-y-2">
-              <p className="text-lg text-emerald-700 font-semibold bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-700 bg-clip-text">
-                Computer Engineer & AI Coding Expert
-              </p>
+              <p className="text-lg text-emerald-700 font-semibold">Computer Engineer & AI Coding Expert</p>
               <p className="text-base text-slate-600">
                 Aspiring computer engineer with expertise in web development, AI/ML, and sign language interpretation.
                 Passionate about creating innovative solutions and contributing to cutting-edge projects.
@@ -141,7 +128,7 @@ export default function RiteshPortfolio() {
           <div className="flex flex-col sm:flex-row gap-4">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700 text-white border-0"
+              className="bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700 text-white"
               onClick={() => scrollToSection("projects")}
             >
               <Star className="mr-2 h-4 w-4" />
@@ -162,7 +149,7 @@ export default function RiteshPortfolio() {
             <Button
               variant="ghost"
               size="icon"
-              className="text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 transform hover:scale-110 transition-all duration-300"
+              className="text-slate-600 hover:text-emerald-600 hover:bg-emerald-50"
               asChild
             >
               <Link
@@ -177,7 +164,7 @@ export default function RiteshPortfolio() {
             <Button
               variant="ghost"
               size="icon"
-              className="text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 transform hover:scale-110 transition-all duration-300"
+              className="text-slate-600 hover:text-emerald-600 hover:bg-emerald-50"
               asChild
             >
               <Link href="mailto:riteshkakade275@gmail.com">
@@ -188,7 +175,7 @@ export default function RiteshPortfolio() {
             <Button
               variant="ghost"
               size="icon"
-              className="text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 transform hover:scale-110 transition-all duration-300"
+              className="text-slate-600 hover:text-emerald-600 hover:bg-emerald-50"
               asChild
             >
               <Link href="tel:+919175357169">
@@ -199,7 +186,7 @@ export default function RiteshPortfolio() {
             <Button
               variant="ghost"
               size="icon"
-              className="text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 transform hover:scale-110 transition-all duration-300"
+              className="text-slate-600 hover:text-emerald-600 hover:bg-emerald-50"
               asChild
             >
               <Link href="https://github.com/ritesh275" target="_blank" rel="noopener noreferrer">
@@ -216,7 +203,7 @@ export default function RiteshPortfolio() {
         <div className="mx-auto max-w-4xl">
           <h2 className="text-3xl font-bold tracking-tighter mb-10 text-center text-slate-900">About Me</h2>
           <div className="grid gap-8 md:grid-cols-2 items-center">
-            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg hover:bg-white/90 transition-all duration-300 transform hover:scale-105">
+            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg shadow-lg hover:shadow-xl transition-shadow">
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-center space-x-2 text-amber-600">
                   <GraduationCap className="h-5 w-5" />
@@ -233,42 +220,27 @@ export default function RiteshPortfolio() {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-indigo-50 to-emerald-50 border-slate-200 backdrop-blur-lg hover:scale-105 transition-all duration-300">
+            <Card className="bg-gradient-to-br from-indigo-50 to-emerald-50 border-slate-200 shadow-lg hover:shadow-xl transition-shadow">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-4">Special Skills</h3>
                 <div className="space-y-4">
-                  <div className="flex items-center space-x-3 group hover:scale-105 transition-all duration-300">
-                    <div className="relative">
-                      <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full flex items-center justify-center">
-                        <Globe className="h-5 w-5 text-white" />
-                      </div>
-                      <div className="absolute inset-0 bg-emerald-500 rounded-full opacity-20"></div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full flex items-center justify-center">
+                      <Globe className="h-5 w-5 text-white" />
                     </div>
-                    <span className="text-emerald-700 font-medium group-hover:text-emerald-800 transition-colors">
-                      Sign Language Interpreter (ASL)
-                    </span>
+                    <span className="text-emerald-700 font-medium">Sign Language Interpreter (ASL)</span>
                   </div>
-                  <div className="flex items-center space-x-3 group hover:scale-105 transition-all duration-300">
-                    <div className="relative">
-                      <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center">
-                        <Brain className="h-5 w-5 text-white" />
-                      </div>
-                      <div className="absolute inset-0 bg-amber-500 rounded-full opacity-20"></div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center">
+                      <Brain className="h-5 w-5 text-white" />
                     </div>
-                    <span className="text-amber-700 font-medium group-hover:text-amber-800 transition-colors">
-                      AI & Machine Learning Expert
-                    </span>
+                    <span className="text-amber-700 font-medium">AI & Machine Learning Expert</span>
                   </div>
-                  <div className="flex items-center space-x-3 group hover:scale-105 transition-all duration-300">
-                    <div className="relative">
-                      <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center">
-                        <Zap className="h-5 w-5 text-white" />
-                      </div>
-                      <div className="absolute inset-0 bg-indigo-500 rounded-full opacity-20"></div>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center">
+                      <Zap className="h-5 w-5 text-white" />
                     </div>
-                    <span className="text-indigo-700 font-medium group-hover:text-indigo-800 transition-colors">
-                      Full-Stack Web Developer
-                    </span>
+                    <span className="text-indigo-700 font-medium">Full-Stack Web Developer</span>
                   </div>
                 </div>
               </CardContent>
@@ -282,8 +254,8 @@ export default function RiteshPortfolio() {
         <div className="mx-auto max-w-4xl">
           <h2 className="text-3xl font-bold tracking-tighter mb-8 text-center text-slate-900">Work Experience</h2>
           <div className="space-y-6">
-            <Card className="bg-gradient-to-r from-indigo-50 to-transparent border-l-4 border-indigo-500 backdrop-blur-lg hover:bg-indigo-50 transition-all duration-500 transform hover:scale-[1.02] hover:shadow-xl">
-              <CardContent className="p-4 bg-transparent">
+            <Card className="bg-gradient-to-r from-indigo-50 to-transparent border-l-4 border-indigo-500 shadow-lg hover:shadow-xl transition-shadow">
+              <CardContent className="p-4">
                 <div className="flex justify-between items-start mb-3">
                   <div className="space-y-1">
                     <h3 className="text-lg font-semibold text-slate-900 flex items-center gap-2">
@@ -310,8 +282,8 @@ export default function RiteshPortfolio() {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-r from-emerald-50 to-transparent border-l-4 border-emerald-500 backdrop-blur-lg hover:bg-emerald-50 transition-all duration-500 transform hover:scale-[1.02] hover:shadow-xl">
-              <CardContent className="p-4 bg-transparent">
+            <Card className="bg-gradient-to-r from-emerald-50 to-transparent border-l-4 border-emerald-500 shadow-lg hover:shadow-xl transition-shadow">
+              <CardContent className="p-4">
                 <div className="flex justify-between items-start mb-3">
                   <div className="space-y-1">
                     <h3 className="text-lg font-semibold text-slate-900 flex items-center gap-2">
@@ -359,8 +331,6 @@ export default function RiteshPortfolio() {
                 features: [
                   "Session-based memory and context chaining",
                   "OpenAI GPT integration for intelligent responses",
-                  "Custom JSON memory for conversation tracking",
-                  "Responsive frontend with Flask backend",
                 ],
               },
               {
@@ -370,12 +340,7 @@ export default function RiteshPortfolio() {
                 tech: ["Python", "OpenAI GPT", "Mermaid.js", "Flask", "JavaScript"],
                 gradient: "from-cyan-500 to-blue-500",
                 image: "/images/code-explainer-pro.png",
-                features: [
-                  "Multi-language code analysis and interpretation",
-                  "Mermaid.js flowchart visualization",
-                  "GitHub repo import functionality",
-                  "Markdown documentation export",
-                ],
+                features: ["Multi-language code analysis and interpretation", "Mermaid.js flowchart visualization"],
               },
               {
                 title: "Admin Dashboard",
@@ -383,11 +348,7 @@ export default function RiteshPortfolio() {
                 tech: ["React", "JavaScript", "CSS"],
                 gradient: "from-indigo-500 to-blue-500",
                 image: "/images/admin-dashboard.png",
-                features: [
-                  "Data visualization dashboards",
-                  "User management and authentication",
-                  "Responsive design for various devices",
-                ],
+                features: ["Data visualization dashboards", "User management and authentication"],
               },
               {
                 title: "Restaurant Website",
@@ -395,11 +356,7 @@ export default function RiteshPortfolio() {
                 tech: ["HTML", "CSS", "JavaScript"],
                 gradient: "from-emerald-500 to-teal-500",
                 image: "/images/restaurant-website.png",
-                features: [
-                  "Online menu and ordering system",
-                  "Table reservation functionality",
-                  "Interactive map and contact information",
-                ],
+                features: ["Online menu and ordering system", "Table reservation functionality"],
               },
               {
                 title: "E-commerce Application",
@@ -407,11 +364,7 @@ export default function RiteshPortfolio() {
                 tech: ["React", "Bootstrap", "REST APIs"],
                 gradient: "from-amber-500 to-orange-500",
                 image: "/images/ecommerce-app.png",
-                features: [
-                  "Product catalog and shopping cart",
-                  "Secure payment gateway integration",
-                  "User account management",
-                ],
+                features: ["Product catalog and shopping cart", "Secure payment gateway integration"],
               },
               {
                 title: "Personal Portfolio",
@@ -419,16 +372,12 @@ export default function RiteshPortfolio() {
                 tech: ["HTML", "CSS", "JavaScript"],
                 gradient: "from-blue-500 to-indigo-500",
                 image: "/images/portfolio-website.png",
-                features: [
-                  "Project showcase with detailed descriptions",
-                  "Skills and experience highlights",
-                  "Contact form and social media links",
-                ],
+                features: ["Project showcase with detailed descriptions", "Skills and experience highlights"],
               },
             ].map((project, index) => (
               <Card
                 key={index}
-                className="group bg-white/80 border-slate-200 backdrop-blur-lg hover:bg-white/90 transition-all duration-500 overflow-hidden"
+                className="group bg-white/80 border-slate-200 backdrop-blur-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
               >
                 <div className={`h-2 bg-gradient-to-r ${project.gradient}`}></div>
                 <div className="h-32 relative overflow-hidden">
@@ -436,49 +385,35 @@ export default function RiteshPortfolio() {
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
                     fill
-                    className="object-cover object-center group-hover:scale-125 group-hover:rotate-3 transition-all duration-500"
+                    className="object-cover object-center group-hover:scale-110 transition-transform duration-300"
                     sizes="(max-width: 768px) 100vw, 400px"
-                    quality={90}
                   />
-                  {/* Floating tech badges */}
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-6 h-6 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
-                  </div>
                 </div>
-                <CardHeader className="bg-transparent pb-3">
+                <CardHeader className="pb-3">
                   <CardTitle className="text-slate-900 group-hover:text-emerald-700 transition-colors text-lg">
                     {project.title}
                   </CardTitle>
                   <CardDescription className="text-slate-600 text-sm">{project.description}</CardDescription>
                 </CardHeader>
-                <CardContent className="bg-transparent pt-0">
-                  {project.features && (
-                    <div className="mb-3">
-                      <ul className="text-xs text-slate-600 space-y-1">
-                        {project.features.slice(0, 2).map((feature, idx) => (
-                          <li key={idx} className="flex items-start">
-                            <span className="text-emerald-600 mr-1">•</span>
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
+                <CardContent className="pt-0">
+                  <div className="mb-3">
+                    <ul className="text-xs text-slate-600 space-y-1">
+                      {project.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start">
+                          <span className="text-emerald-600 mr-1">•</span>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                   <div className="flex flex-wrap gap-1">
-                    {project.tech.slice(0, 3).map((tech, techIdx) => (
-                      <Badge
-                        key={tech}
-                        variant="outline"
-                        className="border-slate-200 text-slate-600 bg-transparent text-xs px-2 py-0"
-                      >
+                    {project.tech.slice(0, 3).map((tech) => (
+                      <Badge key={tech} variant="outline" className="border-slate-200 text-slate-600 text-xs px-2 py-0">
                         {tech}
                       </Badge>
                     ))}
                     {project.tech.length > 3 && (
-                      <Badge
-                        variant="outline"
-                        className="border-slate-200 text-slate-500 bg-transparent text-xs px-2 py-0"
-                      >
+                      <Badge variant="outline" className="border-slate-200 text-slate-500 text-xs px-2 py-0">
                         +{project.tech.length - 3}
                       </Badge>
                     )}
@@ -497,14 +432,14 @@ export default function RiteshPortfolio() {
             Skills & Technologies
           </h2>
           <div className="grid gap-6 md:grid-cols-3">
-            <Card className="bg-gradient-to-br from-indigo-50 to-blue-50 border-slate-200 backdrop-blur-lg hover:scale-105 transition-all duration-300">
-              <CardHeader className="bg-transparent">
+            <Card className="bg-gradient-to-br from-indigo-50 to-blue-50 border-slate-200 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
                 <CardTitle className="text-slate-900 flex items-center">
                   <Code className="mr-2 h-5 w-5 text-indigo-600" />
                   Programming
                 </CardTitle>
               </CardHeader>
-              <CardContent className="bg-transparent">
+              <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {["Python", "Java", "C++", "JavaScript"].map((skill) => (
                     <Badge
@@ -518,14 +453,14 @@ export default function RiteshPortfolio() {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-emerald-50 to-teal-50 border-slate-200 backdrop-blur-lg hover:scale-105 transition-all duration-300">
-              <CardHeader className="bg-transparent">
+            <Card className="bg-gradient-to-br from-emerald-50 to-teal-50 border-slate-200 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
                 <CardTitle className="text-slate-900 flex items-center">
                   <Brain className="mr-2 h-5 w-5 text-emerald-600" />
                   AI & ML
                 </CardTitle>
               </CardHeader>
-              <CardContent className="bg-transparent">
+              <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {["OpenAI GPT", "LangChain", "Machine Learning", "Natural Language Processing"].map((skill) => (
                     <Badge
@@ -539,14 +474,14 @@ export default function RiteshPortfolio() {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-br from-amber-50 to-orange-50 border-slate-200 backdrop-blur-lg hover:scale-105 transition-all duration-300">
-              <CardHeader className="bg-transparent">
+            <Card className="bg-gradient-to-br from-amber-50 to-orange-50 border-slate-200 shadow-lg hover:shadow-xl transition-shadow">
+              <CardHeader>
                 <CardTitle className="text-slate-900 flex items-center">
                   <Briefcase className="mr-2 h-5 w-5 text-amber-600" />
                   Web & Tools
                 </CardTitle>
               </CardHeader>
-              <CardContent className="bg-transparent">
+              <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {["React", "Flask", "HTML/CSS", "Git", "REST APIs"].map((skill) => (
                     <Badge
@@ -604,9 +539,9 @@ export default function RiteshPortfolio() {
             ].map((cert, index) => (
               <Card
                 key={index}
-                className="bg-white/80 border-slate-200 backdrop-blur-lg hover:bg-white/90 transition-all duration-300 transform hover:scale-105 group"
+                className="bg-white/80 border-slate-200 backdrop-blur-lg shadow-lg hover:shadow-xl transition-shadow group"
               >
-                <CardHeader className="bg-transparent">
+                <CardHeader>
                   <div className="flex items-start justify-between">
                     <div className="flex items-center space-x-3 flex-1">
                       <Award className={`h-6 w-6 text-${cert.color}-600`} />
@@ -649,8 +584,8 @@ export default function RiteshPortfolio() {
             I'm always interested in new opportunities and exciting projects. Let's discuss how we can work together!
           </p>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-8">
-            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg hover:bg-white/90 transition-all duration-300 transform hover:scale-105 group">
-              <CardContent className="p-6 text-center bg-transparent">
+            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg shadow-lg hover:shadow-xl transition-shadow group">
+              <CardContent className="p-6 text-center">
                 <Link href="mailto:riteshkakade275@gmail.com" className="block">
                   <Mail className="h-8 w-8 text-indigo-600 mx-auto mb-2 group-hover:text-emerald-600 transition-colors" />
                   <p className="text-slate-600 text-sm group-hover:text-slate-900 transition-colors">
@@ -659,16 +594,16 @@ export default function RiteshPortfolio() {
                 </Link>
               </CardContent>
             </Card>
-            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg hover:bg-white/90 transition-all duration-300 transform hover:scale-105 group">
-              <CardContent className="p-6 text-center bg-transparent">
+            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg shadow-lg hover:shadow-xl transition-shadow group">
+              <CardContent className="p-6 text-center">
                 <Link href="tel:+919175357169" className="block">
                   <Phone className="h-8 w-8 text-emerald-600 mx-auto mb-2 group-hover:text-amber-600 transition-colors" />
                   <p className="text-slate-600 text-sm group-hover:text-slate-900 transition-colors">+91 9175357169</p>
                 </Link>
               </CardContent>
             </Card>
-            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg hover:bg-white/90 transition-all duration-300 transform hover:scale-105 group">
-              <CardContent className="p-6 text-center bg-transparent">
+            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg shadow-lg hover:shadow-xl transition-shadow group">
+              <CardContent className="p-6 text-center">
                 <Link
                   href="https://www.linkedin.com/in/ritesh-kakade-6b8514366"
                   target="_blank"
@@ -680,8 +615,8 @@ export default function RiteshPortfolio() {
                 </Link>
               </CardContent>
             </Card>
-            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg hover:bg-white/90 transition-all duration-300 transform hover:scale-105 group">
-              <CardContent className="p-6 text-center bg-transparent">
+            <Card className="bg-white/80 border-slate-200 backdrop-blur-lg shadow-lg hover:shadow-xl transition-shadow group">
+              <CardContent className="p-6 text-center">
                 <Link href="https://github.com/ritesh275" target="_blank" rel="noopener noreferrer" className="block">
                   <Github className="h-8 w-8 text-indigo-600 mx-auto mb-2 group-hover:text-emerald-600 transition-colors" />
                   <p className="text-slate-600 text-sm group-hover:text-slate-900 transition-colors">
@@ -694,7 +629,7 @@ export default function RiteshPortfolio() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700 text-white border-0 transform hover:scale-105 transition-all duration-200"
+              className="bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700 text-white"
               asChild
             >
               <Link href="mailto:riteshkakade275@gmail.com">
@@ -705,7 +640,7 @@ export default function RiteshPortfolio() {
             <Button
               size="lg"
               variant="outline"
-              className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 hover:text-emerald-700 transform hover:scale-105 transition-all duration-200 bg-transparent"
+              className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 hover:text-emerald-700 bg-transparent"
               asChild
             >
               <Link

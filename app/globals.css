@@ -1,8 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -120,18 +118,4 @@
   body {
     @apply bg-background text-foreground;
   }
-}
-
-@layer components {
-  .card {
-    @apply bg-white/80 border-slate-200 backdrop-blur-lg shadow-lg;
-  }
-
-  .badge {
-    @apply bg-indigo-100 text-indigo-700 border-indigo-200;
-  }
-}
-
-@layer utilities {
-  /* Keep only basic utilities if needed */
 }
