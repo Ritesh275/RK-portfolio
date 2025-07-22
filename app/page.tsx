@@ -28,9 +28,11 @@ import { useEffect, useState } from "react"
 export default function RiteshPortfolio() {
   const [isVisible, setIsVisible] = useState(false)
   const [activeSection, setActiveSection] = useState("hero")
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
     setIsVisible(true)
+    setIsMounted(true)
 
     const handleScroll = () => {
       const sections = ["hero", "about", "experience", "projects", "skills", "certifications", "contact"]
@@ -57,6 +59,10 @@ export default function RiteshPortfolio() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
     }
+  }
+
+  if (!isMounted) {
+    return null // Return nothing during SSR
   }
 
   return (
