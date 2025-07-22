@@ -327,7 +327,7 @@ export default function RiteshPortfolio() {
                   <div className="space-y-1">
                     <h3 className="text-lg font-semibold text-slate-900 flex items-center gap-2">
                       <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-                      Web Development Intern
+                      Frontend Developer Intern
                     </h3>
                     <p className="text-emerald-700 font-medium">
                       <Link
