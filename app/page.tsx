@@ -213,7 +213,7 @@ export default function RiteshPortfolio() {
               className="text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 transform hover:scale-110 transition-all duration-300"
               asChild
             >
-              <Link href="https://github.com/riteshkakade" target="_blank" rel="noopener noreferrer">
+              <Link href="https://github.com/ritesh275" target="_blank" rel="noopener noreferrer">
                 <Github className="h-5 w-5 animate-pulse-slow animation-delay-2000" />
                 <span className="sr-only">GitHub</span>
               </Link>
@@ -689,15 +689,10 @@ export default function RiteshPortfolio() {
             </Card>
             <Card className="bg-white/80 border-slate-200 backdrop-blur-lg hover:bg-white/90 transition-all duration-300 transform hover:scale-105 group">
               <CardContent className="p-6 text-center bg-transparent">
-                <Link
-                  href="https://github.com/riteshkakade"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
-                >
+                <Link href="https://github.com/ritesh275" target="_blank" rel="noopener noreferrer" className="block">
                   <Github className="h-8 w-8 text-indigo-600 mx-auto mb-2 group-hover:text-emerald-600 transition-colors" />
                   <p className="text-slate-600 text-sm group-hover:text-slate-900 transition-colors">
-                    github.com/riteshkakade
+                    github.com/ritesh275
                   </p>
                 </Link>
               </CardContent>
@@ -771,7 +766,7 @@ export default function RiteshPortfolio() {
                 className="text-slate-500 hover:text-emerald-600 hover:bg-emerald-50"
                 asChild
               >
-                <Link href="https://github.com/riteshkakade" target="_blank" rel="noopener noreferrer">
+                <Link href="https://github.com/ritesh275" target="_blank" rel="noopener noreferrer">
                   <Github className="h-4 w-4" />
                   <span className="sr-only">GitHub</span>
                 </Link>
