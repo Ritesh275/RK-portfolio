@@ -369,6 +369,7 @@ export default function RiteshPortfolio() {
                 tech: ["Python", "OpenAI GPT", "LangChain", "Flask", "JavaScript"],
                 gradient: "from-purple-500 to-pink-500",
                 image: "/images/ai-memory-chatbot.png",
+                github: "https://github.com/riteshkakade/ai-memory-chatbot",
                 features: [
                   "Session-based memory and context chaining",
                   "OpenAI GPT integration for intelligent responses",
@@ -383,6 +384,7 @@ export default function RiteshPortfolio() {
                 tech: ["Python", "OpenAI GPT", "Mermaid.js", "Flask", "JavaScript"],
                 gradient: "from-cyan-500 to-blue-500",
                 image: "/images/code-explainer-pro.png",
+                github: "https://github.com/riteshkakade/code-explainer-pro",
                 features: [
                   "Multi-language code analysis and interpretation",
                   "Mermaid.js flowchart visualization",
@@ -396,6 +398,7 @@ export default function RiteshPortfolio() {
                 tech: ["React", "JavaScript", "CSS"],
                 gradient: "from-indigo-500 to-blue-500",
                 image: "/images/admin-dashboard.png",
+                github: "https://github.com/riteshkakade/admin-dashboard",
               },
               {
                 title: "Restaurant Website",
@@ -403,6 +406,7 @@ export default function RiteshPortfolio() {
                 tech: ["HTML", "CSS", "JavaScript"],
                 gradient: "from-emerald-500 to-teal-500",
                 image: "/images/restaurant-website.png",
+                github: "https://github.com/riteshkakade/restaurant-website",
               },
               {
                 title: "E-commerce Application",
@@ -410,6 +414,7 @@ export default function RiteshPortfolio() {
                 tech: ["React", "Bootstrap", "REST APIs"],
                 gradient: "from-amber-500 to-orange-500",
                 image: "/images/ecommerce-app.png",
+                github: "https://github.com/riteshkakade/ecommerce-app",
               },
               {
                 title: "Personal Portfolio",
@@ -417,6 +422,7 @@ export default function RiteshPortfolio() {
                 tech: ["HTML", "CSS", "JavaScript"],
                 gradient: "from-blue-500 to-indigo-500",
                 image: "/images/portfolio-website.png",
+                github: "https://github.com/riteshkakade/portfolio-website",
               },
             ].map((project, index) => (
               <Card
@@ -470,6 +476,36 @@ export default function RiteshPortfolio() {
                       >
                         +{project.tech.length - 3}
                       </Badge>
+                    )}
+                  </div>
+                  <div className="flex gap-2 mt-4">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="border-indigo-500/20 text-indigo-200/80 hover:bg-indigo-500/10 hover:text-indigo-100 bg-transparent flex-1"
+                      asChild
+                    >
+                      <Link
+                        href={project.github || "https://github.com/riteshkakade"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="mr-2 h-3 w-3" />
+                        View Code
+                      </Link>
+                    </Button>
+                    {project.demo && (
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="border-emerald-500/20 text-emerald-200/80 hover:bg-emerald-500/10 hover:text-emerald-100 bg-transparent flex-1"
+                        asChild
+                      >
+                        <Link href={project.demo} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="mr-2 h-3 w-3" />
+                          Live Demo
+                        </Link>
+                      </Button>
                     )}
                   </div>
                 </CardContent>
