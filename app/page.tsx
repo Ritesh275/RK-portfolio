@@ -100,16 +100,33 @@ export default function RiteshPortfolio() {
 
       {/* Hero Section */}
       <section id="hero" className="relative container px-4 py-20 md:py-28 overflow-hidden">
-        {/* Floating Particles */}
+        {/* Enhanced Floating Particles with 3D effects */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(6)].map((_, i) => (
+          {[...Array(12)].map((_, i) => (
             <div
               key={i}
-              className={`absolute w-2 h-2 bg-gradient-to-r from-indigo-400 to-emerald-400 rounded-full animate-particle opacity-40`}
+              className={`absolute w-3 h-3 bg-gradient-to-r from-indigo-400 to-emerald-400 rounded-full animate-float-3d opacity-60 morph-circle`}
               style={{
                 left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${i * 1.5}s`,
+                animationDuration: `${6 + Math.random() * 4}s`,
+              }}
+            />
+          ))}
+          {/* 3D Geometric shapes */}
+          {[...Array(6)].map((_, i) => (
+            <div
+              key={`geo-${i}`}
+              className={`absolute w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-400 opacity-20 animate-rotate-3d`}
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
                 animationDelay: `${i * 2}s`,
-                animationDuration: `${8 + Math.random() * 4}s`,
+                clipPath:
+                  i % 2 === 0
+                    ? "polygon(50% 0%, 0% 100%, 100% 100%)"
+                    : "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
               }}
             />
           ))}
@@ -120,29 +137,36 @@ export default function RiteshPortfolio() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="relative animate-float">
-            <div className="w-24 h-24 rounded-full bg-gradient-to-r from-indigo-500 to-emerald-500 flex items-center justify-center animate-glow">
-              <div className="w-[90px] h-[90px] rounded-full bg-white flex items-center justify-center">
-                <User className="h-12 w-12 text-emerald-600 animate-pulse-slow" />
+          <div className="relative animate-float-3d">
+            <div className="w-24 h-24 rounded-full bg-gradient-to-r from-indigo-500 to-emerald-500 flex items-center justify-center glow-intense card-3d">
+              <div className="w-[90px] h-[90px] rounded-full bg-white flex items-center justify-center hover-3d">
+                <User className="h-12 w-12 text-emerald-600 animate-heartbeat" />
               </div>
             </div>
-            <div className="absolute -top-2 -right-2 w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center animate-wave">
-              <span className="text-xs">👋</span>
+            <div className="absolute -top-2 -right-2 w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center animate-bounce-3d">
+              <span className="text-xs animate-wiggle">👋</span>
+            </div>
+            {/* Orbiting elements */}
+            <div className="absolute inset-0 animate-spin-slow">
+              <div className="absolute -top-4 left-1/2 w-2 h-2 bg-amber-400 rounded-full animate-pulse-3d"></div>
+              <div className="absolute top-1/2 -right-4 w-2 h-2 bg-purple-400 rounded-full animate-pulse-3d animation-delay-1000"></div>
+              <div className="absolute -bottom-4 left-1/2 w-2 h-2 bg-pink-400 rounded-full animate-pulse-3d animation-delay-2000"></div>
+              <div className="absolute top-1/2 -left-4 w-2 h-2 bg-cyan-400 rounded-full animate-pulse-3d animation-delay-3000"></div>
             </div>
           </div>
 
           <div className="space-y-3">
-            <h1 className="text-3xl font-normal tracking-tighter sm:text-4xl md:text-5xl text-slate-900 font-display animate-fade-in">
+            <h1 className="text-3xl font-normal tracking-tighter sm:text-4xl md:text-5xl text-slate-900 font-display animate-fade-in text-3d">
               Hi, I'm{" "}
-              <span className="bg-gradient-to-r from-emerald-600 via-amber-500 to-indigo-600 bg-clip-text text-transparent animate-gradient font-bold">
+              <span className="bg-gradient-to-r from-emerald-600 via-amber-500 to-indigo-600 bg-clip-text text-transparent animate-gradient font-bold hover-3d">
                 Ritesh Kakade
               </span>
             </h1>
             <div className="mx-auto max-w-[700px] space-y-2 animate-slide-up animation-delay-1000">
-              <p className="text-lg text-emerald-700 font-semibold animate-shimmer bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-700 bg-clip-text">
+              <p className="text-lg text-emerald-700 font-semibold animate-shimmer bg-gradient-to-r from-emerald-700 via-emerald-600 to-emerald-700 bg-clip-text animate-swing">
                 Computer Engineer & AI Coding Expert
               </p>
-              <p className="text-base text-slate-600">
+              <p className="text-base text-slate-600 animate-fade-in animation-delay-2000">
                 Aspiring computer engineer with expertise in web development, AI/ML, and sign language interpretation.
                 Passionate about creating innovative solutions and contributing to cutting-edge projects.
               </p>
@@ -152,19 +176,19 @@ export default function RiteshPortfolio() {
           <div className="flex flex-col sm:flex-row gap-4 animate-scale-in animation-delay-2000">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700 text-white border-0 transform hover:scale-105 transition-all duration-200 animate-glow"
+              className="bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-700 hover:to-emerald-700 text-white border-0 button-3d glow-rainbow"
               onClick={() => scrollToSection("projects")}
             >
-              <Star className="mr-2 h-4 w-4 animate-spin-slow" />
+              <Star className="mr-2 h-4 w-4 animate-rotate-3d" />
               View My Work
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 hover:text-emerald-700 transform hover:scale-105 transition-all duration-200 bg-transparent"
+              className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 hover:text-emerald-700 button-3d bg-transparent"
               onClick={() => scrollToSection("contact")}
             >
-              <Mail className="mr-2 h-4 w-4 animate-bounce-slow" />
+              <Mail className="mr-2 h-4 w-4 animate-bounce-3d" />
               Get In Touch
             </Button>
           </div>
@@ -357,7 +381,9 @@ export default function RiteshPortfolio() {
       {/* Projects Section */}
       <section id="projects" className="relative container px-4 py-20">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold tracking-tighter mb-10 text-center text-slate-900">Featured Projects</h2>
+          <h2 className="text-3xl font-bold tracking-tighter mb-10 text-center text-slate-900 text-3d animate-flip">
+            Featured Projects
+          </h2>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
@@ -439,32 +465,45 @@ export default function RiteshPortfolio() {
             ].map((project, index) => (
               <Card
                 key={index}
-                className="group bg-white/80 border-slate-200 backdrop-blur-lg hover:bg-white/90 transition-all duration-300 transform hover:scale-105 overflow-hidden"
+                className="group bg-white/80 border-slate-200 backdrop-blur-lg hover:bg-white/90 transition-all duration-500 card-3d overflow-hidden glow-intense"
+                style={{
+                  animationDelay: `${index * 0.2}s`,
+                }}
               >
-                <div className={`h-2 bg-gradient-to-r ${project.gradient}`}></div>
+                <div className={`h-2 bg-gradient-to-r ${project.gradient} animate-shimmer`}></div>
                 <div className="h-32 relative overflow-hidden">
                   <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
                     fill
-                    className="object-cover object-center group-hover:scale-110 transition-transform duration-300"
+                    className="object-cover object-center group-hover:scale-125 group-hover:rotate-3 transition-all duration-500 hover-3d"
                     sizes="(max-width: 768px) 100vw, 400px"
                     quality={90}
                   />
+                  {/* Floating tech badges */}
+                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-6 h-6 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full animate-bounce-3d"></div>
+                  </div>
                 </div>
                 <CardHeader className="bg-transparent pb-3">
-                  <CardTitle className="text-slate-900 group-hover:text-emerald-700 transition-colors text-lg">
+                  <CardTitle className="text-slate-900 group-hover:text-emerald-700 transition-colors text-lg hover-3d animate-zoom-pulse">
                     {project.title}
                   </CardTitle>
-                  <CardDescription className="text-slate-600 text-sm">{project.description}</CardDescription>
+                  <CardDescription className="text-slate-600 text-sm animate-fade-in">
+                    {project.description}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="bg-transparent pt-0">
                   {project.features && (
                     <div className="mb-3">
                       <ul className="text-xs text-slate-600 space-y-1">
                         {project.features.slice(0, 2).map((feature, idx) => (
-                          <li key={idx} className="flex items-start">
-                            <span className="text-emerald-600 mr-1">•</span>
+                          <li
+                            key={idx}
+                            className="flex items-start animate-slide-up"
+                            style={{ animationDelay: `${idx * 0.1}s` }}
+                          >
+                            <span className="text-emerald-600 mr-1 animate-heartbeat">•</span>
                             {feature}
                           </li>
                         ))}
@@ -472,11 +511,12 @@ export default function RiteshPortfolio() {
                     </div>
                   )}
                   <div className="flex flex-wrap gap-1">
-                    {project.tech.slice(0, 3).map((tech) => (
+                    {project.tech.slice(0, 3).map((tech, techIdx) => (
                       <Badge
                         key={tech}
                         variant="outline"
-                        className="border-slate-200 text-slate-600 bg-transparent text-xs px-2 py-0"
+                        className="border-slate-200 text-slate-600 bg-transparent text-xs px-2 py-0 hover-3d animate-wiggle"
+                        style={{ animationDelay: `${techIdx * 0.2}s` }}
                       >
                         {tech}
                       </Badge>
@@ -484,7 +524,7 @@ export default function RiteshPortfolio() {
                     {project.tech.length > 3 && (
                       <Badge
                         variant="outline"
-                        className="border-slate-200 text-slate-500 bg-transparent text-xs px-2 py-0"
+                        className="border-slate-200 text-slate-500 bg-transparent text-xs px-2 py-0 animate-pulse-3d"
                       >
                         +{project.tech.length - 3}
                       </Badge>
